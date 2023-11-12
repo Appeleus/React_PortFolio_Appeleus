@@ -1,0 +1,111 @@
+/* Navbar.css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* Set the background color to grey */
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Quicksand';
+    src: url('./fonts/Quicksand-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Quicksand';
+    src: url('./fonts/Quicksand-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: 25px;
+    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s, backdrop-filter 0.3s;
+    z-index: 1000;
+  }
+  
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+  }
+  
+  li {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .selected {
+    text-shadow: 1px 0 black, -1px 0 black, 0 -1px black;
+    font-weight: bold;
+  }
+
+  .has-submenu {
+    position: relative;
+  }
+  
+  .submenu {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    list-style-type: none;
+    bottom: 100%; /* Position the sub-menu above its parent */
+    width: 200px;
+    animation: fadeIn 0.3s ease;
+    text-align: center;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .submenu li {
+    border-bottom: 2px solid #000; /* Add a horizontal line between items */
+    margin-bottom: 10px; /* Increase the spacing between items */
+
+  }
+  
+  .submenu li:last-child {
+    border-bottom: none;
+  }
+
+  .has-submenu:hover .submenu {
+    font-weight: lighter; /* Set font-weight to normal */
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+  }
+
+  
+
+  
+  
+  

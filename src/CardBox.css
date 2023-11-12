@@ -1,0 +1,33 @@
+/* CardBox.css */
+.card-box {
+  background-color: white;
+  border-radius: 15px; /* Adjust the radius to your preference for rounded corners */
+  padding: 5%; /* Add padding around every side (top, right, bottom, left) */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a subtle elevation effect */
+  margin: 5% auto; /* Add margin on top and bottom, and center the card box horizontally */
+  max-height: 100vh; /* Limit the height to 100% of the viewport height */
+  overflow: hidden; /* Hide the scrollbar */
+
+  /* Media queries for responsiveness */
+
+  @media (min-width: 750px) {
+    margin: 10px; /* Adjust margin for smaller screens */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+
+
+  @media (max-width: 750px) {
+    width: 90%; /* Adjust width for smaller screens */
+    height: 100%;
+  }
+
+  /* Add more media queries as needed for different screen sizes */
+
+
+
+  /* Ensure the border-radius is not overridden by other styles */
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
