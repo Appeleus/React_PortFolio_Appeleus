@@ -1,0 +1,50 @@
+/* academic-project.css */
+
+body {
+  overflow-x: hidden;
+  background-color: #aaa;
+}
+
+.scrollable-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(17, 87, 33);
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.project-card {
+  width: 100%;
+  border-radius: 16px;
+  margin: 0 10px 10px;
+  max-width: 95%;
+  height: 300px; /* Set a fixed height for the card */
+  background-color: #fbb;
+  opacity: 0.25;
+  transition: opacity 0.5s ease-in-out;
+  scroll-snap-align: start;
+}
+
+.project-card img {
+  object-fit: cover;
+  width: 100%;
+  height: 10vh;
+  border-radius: 10px 10px 0 0;
+}
+
+.project-card h2,
+.project-card p {
+  margin: 10px;
+}
+
+.project-card.active {
+  opacity: 1;
+}
+
+/* Adjust the opacity for inactive cards on hover */
+.project-card:not(.active):hover {
+  opacity: 0.8;
+}

@@ -5,6 +5,17 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  transition: opacity 0.3s ease; /* Add transition for opacity */
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color:#000;
+}
+
+.home.scrolled {
+  opacity: 0.8; /* Adjust opacity for scrolled state */
 }
 
 .background-container {
@@ -60,7 +71,17 @@
   justify-content: center;
   cursor: pointer;
   margin-right: 10px;
+  fill: #3498db; /* Set the initial fill color */
+  transition: fill 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0.8; /* Set initial opacity */
 }
+
+.circle:hover {
+  fill: #2980b9; /* Change the fill color on hover */
+  filter: drop-shadow(0 0 0.75rem white);
+  opacity: 1; /* Set opacity on hover */
+}
+
 
 .circle img {
   width: 70%;
@@ -75,4 +96,5 @@
   margin-right: 20px;
   font-size: 18px;
 }
+
 

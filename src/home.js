@@ -1,10 +1,14 @@
 // Home.js
 
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import './home.css'; // Import the corresponding CSS file
 import junaiper from './asset/For_mobile_Jnp.mp4';
 
 const Home = () => {
+    const location = useLocation();
+    const isHome = location.pathname === '/home';
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -41,20 +45,34 @@ const Home = () => {
                 <source src={junaiper} type='video/mp4' />
             </video> */}
             {/* Parallax Background */}
-            <div className="circle-row">
-                <div className="circle">
-                    <img src="https://www.svgrepo.com/show/513089/youtube-168.svg" alt="YouTube Logo" />
+            {isHome && (
+                <div className="circle-row">
+
+                    <a href="https://www.youtube.com/@TanoshiiRinko" target="_blank" rel="noopener noreferrer">
+                        <div className="circle">
+
+                            <img src="https://www.svgrepo.com/show/513089/youtube-168.svg" alt="YouTube Logo" />
+                        </div>
+                    </a>
+
+                    <a href="https://twitter.com/TanoshiiRinko" target="_blank" rel="noopener noreferrer">
+                        <div className="circle">
+                            <img src="https://www.svgrepo.com/show/513008/twitter-154.svg" alt="Twitter Logo" />
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Appeleus" target="_blank" rel="noopener noreferrer">
+                        <div className="circle">
+                            <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" />
+                        </div>
+                    </a>
+
+                    <div className="circle">
+                        <img src="https://www.svgrepo.com/show/488179/email.svg" alt="Email Logo" />
+                    </div>
+
                 </div>
-                <div className="circle">
-                    <img src="https://www.svgrepo.com/show/513008/twitter-154.svg" alt="Twitter Logo" />
-                </div>
-                <div className="circle">
-                    <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" />
-                </div>
-                <div className="circle">
-                    <img src="https://www.svgrepo.com/show/488179/email.svg" alt="Email Logo" />
-                </div>
-            </div>
+            )}
 
             <div className="background-container">
                 <div className="background-layer"></div>
