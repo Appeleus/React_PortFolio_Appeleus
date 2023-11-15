@@ -6,6 +6,7 @@ import Home from './home';
 import AcademicProject from './academic-project';
 import Animation from './animation';
 import PageTransition from './page-transition';
+import Illustration from './illustration';
 
 const Navbar = () => {
 
@@ -46,7 +47,7 @@ const Navbar = () => {
             className={selectedItem === 'Academic Projects' ? 'selected' : ''}
             onClick={() => handleItemClick('Academic Projects')}
           >
-            <NavLink to="/academicProject">Academic Projects</NavLink>
+            <NavLink to="/academicProject">Projects</NavLink>
           </li>
           <li className="has-submenu">
             Hobbies
@@ -67,24 +68,25 @@ const Navbar = () => {
                   Illustration
                 </NavLink>
               </li>
-              <li
+              {/* <li
                 className={selectedItem === 'Instrument' ? 'selected' : ''}
                 onClick={() => handleItemClick('Instrument')}
               >
                 <NavLink to="/instrument">
                   Instrument
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </li>
         </ul>
       </nav>
       <Routes>
+      <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/home" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/academicProject" element={<PageTransition><AcademicProject /></PageTransition>} />
         <Route path="/animation" element={<PageTransition><Animation /></PageTransition>} />
-        <Route path="/illustration" element={<PageTransition><AcademicProject /></PageTransition>} />
-        <Route path="/instrument" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/illustration" element={<PageTransition><Illustration /></PageTransition>} />
+        {/* <Route path="/instrument" element={<PageTransition><Home /></PageTransition>} /> */}
 
       </Routes>
     </>

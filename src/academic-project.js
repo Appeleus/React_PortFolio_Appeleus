@@ -1,84 +1,176 @@
 // academic-project.js
 
-import React, { useState, useEffect } from 'react';
-import './academic-project.css'; // Import the corresponding CSS file
+import React, { useState, useEffect, useRef } from 'react';
+import './academic-project.css';
+import { Footer } from './footer'
 
 const AcademicProject = () => {
+
+  const cardWrapperRef = useRef(null);
+
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [scrollingFromClick, setScrollingFromClick] = useState(false);
+
   const projects = [
     {
       id: 1,
-      name: 'Project 1',
-      description: 'Description for Project 1',
-      image: 'https://media.discordapp.net/attachments/735387046998179952/1168500589861294140/000009.jpg?ex=655b387a&is=6548c37a&hm=bc64e16c39ac786a6baa253d0060518758a3b77bd39b2a8bdf5eb861d5127c4b&=&width=709&height=473',
+      name: 'Project Food webboard',
+      description: 'A Project Food Community Webboard',
+      image: 'https://media.discordapp.net/attachments/769586344774336552/1174161905133301821/image.png?ex=6566967d&is=6554217d&hm=7235ab7224cabb14976c55b18869ffb0665a8c501919df526227b536cb7643df&=&width=367&height=157',
+      prjLink: ''
     },
     {
       id: 2,
-      name: 'Project 2',
-      description: 'Description for Project 2',
-      image: 'https://images-ext-2.discordapp.net/external/rJIxuoJjpZCnS5Mu7EoYMS_mund784X4ttZx5JQPapk/%3Fsize%3D4096/https/cdn.discordapp.com/avatars/300933528659427329/e760c0b62e3d874026381709310d2684.png?width=460&height=460',
+      name: 'React Practice',
+      description: 'A simple foot-in-the-door for React Native!',
+      image: 'https://media.discordapp.net/attachments/769586344774336552/1174161943670562907/image.png?ex=65669686&is=65542186&hm=1f5996db9d1b0f3d007319f6618e14bb431720a276f58a0e6e53f35355147b6f&=&width=368&height=152',
     },
     {
       id: 3,
-      name: 'Project 3',
-      description: 'Description for Project 3',
-      image: 'https://media.discordapp.net/attachments/695188971080122449/1158759066496159975/F7g-PB-XoAAtquT.png?ex=655cb1fa&is=654a3cfa&hm=21b611e9101d48540bb1882a6af041ffb9801406ce4adedb333a64849df48b51&=&width=663&height=663',
-    }
+      name: 'Bank management',
+      description: 'A banking system simulated in Java',
+      image: 'https://media.discordapp.net/attachments/769586344774336552/1174161996955004998/image.png?ex=65669692&is=65542192&hm=2e40eee3aa10714b6feeed6762d2bea9ef9b75c7262d0eef274fd0dbec4ca48f&=&width=370&height=133',
+    },
+    {
+      id: 4,
+      name: 'React Quiz Workshop',
+      description: 'Simple React Quiz App! Just like Kahoot',
+      image: 'https://media.discordapp.net/attachments/769586344774336552/1174162023425265714/image.png?ex=65669699&is=65542199&hm=2cd0ba449a9c8a8b26ee102044cbb3aeddb8a7e3a2637367c89771e5c771f2dc&=&width=366&height=129',
+    },
+    {
+      id: 5,
+      name: 'Webboard with PHP and Bootstrap',
+      description: 'An ancestor of Project Food webboard',
+      image: 'https://media.discordapp.net/attachments/769586344774336552/1174162057160040558/image.png?ex=656696a1&is=655421a1&hm=cf28eaf4f91972e13d9ecab0eef3df6593d4263c0b7b15e9fe51f72e6beef9af&=&width=370&height=116',
+    },
+    {
+      id: 6,
+      name: 'More projects are coming!',
+      description: 'There is this application called "Perforkid" but its repository is privated right now so it simply cannot be showed here, and also dealing with scroll event is my god so much - Delicious Apple',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1280px-HD_transparent_picture.png',
+    },
     // Add more projects as needed
   ];
 
-  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const handleArrowClick = (direction) => {
+    if (scrollingFromClick) {
+      return; // Don't initiate a new scroll if scrolling from a manual card click
+    }
 
-  const handleScroll = () => {
-    const container = document.querySelector('.scrollable-container');
-    const cardHeight = window.innerHeight;
+    const container = document.querySelector('.project-card-container');
+    const newIndex =
+      direction === 'up'
+        ? Math.max(currentProjectIndex - 1, 0)
+        : Math.min(currentProjectIndex + 1, projects.length - 1);
 
-    // Calculate the index of the active project based on scroll position
-    const newIndex = Math.round(container.scrollTop / cardHeight);
-
-    // Update the current project index
     setCurrentProjectIndex(newIndex);
 
-    projects.forEach((index) => {
-      const card = document.querySelector(`.project-card[data-index="${index}"]`);
-      const cardTop = card.offsetTop;
-      const cardBottom = cardTop + card.offsetHeight;
-
-      const isInViewport = cardTop <= window.innerHeight && cardBottom >= 0;
-
-      if (isInViewport) {
-        // Card is in the viewport, set opacity to 1
-        card.style.opacity = 1;
-      } else {
-        // Card is not in the viewport, set opacity to 0
-        card.style.opacity = 0;
-      }
+    container.scrollTo({
+      top: newIndex * window.innerHeight,
+      behavior: 'smooth',
     });
   };
 
+  const handleScroll = () => {
+    const container = document.querySelector('.project-card-container');
+    const scrollTop = container.scrollTop;
+    const totalHeight = container.scrollHeight - window.innerHeight;
+    const normalizedScroll = totalHeight === 0 ? 0 : scrollTop / totalHeight;
+    const newIndex = Math.round(normalizedScroll * (projects.length - 1));
+
+
+
+    setCurrentProjectIndex(newIndex);
+
+    // const windowHeight = window.innerHeight;
+    // console.log('Scroll Top:', scrollTop);
+    // console.log('Window Height:', windowHeight);
+
+    if (!scrollingFromClick) {
+      setCurrentProjectIndex(newIndex);
+    }
+  };
+
+  // const cardContainerStyle = {
+  //   transform: `translateY(-${currentProjectIndex * 16.5}%)`, // Adjust the width percentage as needed
+  // };
+
+
+
+  const navigateToIndex = (index) => {
+    setScrollingFromClick(true);
+    setCurrentProjectIndex(index);
+
+    const container = cardWrapperRef.current;
+    const cardHeight = container.clientHeight;
+    const startOffset = cardHeight / 2;
+    const endOffset = cardHeight / 2;
+    const scrollToY = index * cardHeight + startOffset;
+
+    container.scrollTo({
+      top: scrollToY,
+      behavior: 'smooth',
+    });
+
+    // Apply start offset
+    container.scrollTop -= startOffset;
+
+    setTimeout(() => {
+      container.scrollTop += endOffset;
+    }, 1000);
+    
+    setTimeout(() => {
+      setScrollingFromClick(false);
+    }, 2000); // Adjust the delay as needed
+  };
+
   useEffect(() => {
-    // Add event listener for scroll
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [projects]); // Empty dependency array to run the effect only once on mount
+    console.log('Project updated:', currentProjectIndex);
+  }, [currentProjectIndex]);
 
   return (
-    <div className="scrollable-container">
-      {projects.map((project, index) => (
-        <div
-          key={project.id}
-          className={`project-card ${index === currentProjectIndex ? 'active' : ''}`}
-          data-index={index}
-        >
-          <img src={project.image} alt={`Project ${index + 1}`} />
-          <h2>{project.name}</h2>
-          <p>{project.description}</p>
-        </div>
-      ))}
+
+    <div className="card-wrapper" ref={cardWrapperRef}>
+
+      {/* <div className='arrow-container'> */}
+      {/* Up arrow */}
+      {/* <div className="arrow upper" onClick={() => handleArrowClick('up')}></div> */}
+
+      {/* Down arrow */}
+      {/* <div className="arrow downer" onClick={() => handleArrowClick('down')}></div> */}
+      {/* </div> */}
+
+      {/* Project cards container */}
+      <div className="project-card-container" onScroll={handleScroll} >
+      <Footer />
+        {projects.map((project, index) => (
+          <div
+            key={project.id}
+            className={`project-card ${index === currentProjectIndex ? 'active' : ''}`}
+            onClick={() => navigateToIndex(index)}
+          >
+            {/* Card content here */}
+            <img src={project.image} alt={`Project ${index + 1}`} />
+            <h2>{project.name}</h2>
+            <p>{project.description}</p>
+
+            {/* Overlay for next/previous cards */}
+            {index === currentProjectIndex - 1 && (
+              <div className="overlay previous">
+                <img src={projects[index].image} alt={`Project ${index}`} />
+              </div>
+            )}
+
+            {index === currentProjectIndex + 1 && (
+              <div className="overlay next">
+                <img src={projects[index].image} alt={`Project ${index}`} />
+              </div>
+            )}
+          </div>
+        ))}
+        <Footer />
+      </div>
+
     </div>
   );
 };

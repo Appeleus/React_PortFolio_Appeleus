@@ -1,0 +1,182 @@
+/* illustration.css */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color:#000;
+  }
+
+.illustration-container {
+    padding: 20px;
+    overflow-y: auto;
+    /* Enable vertical scrollbar */
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: #555 #f5f5f5;
+    /* Firefox */
+    height: 100vh;
+}
+
+.illustration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
+    grid-auto-rows: minmax(auto, max-content);
+    /* Dynamic row height */
+    grid-auto-flow: dense;
+    gap: 20px;
+}
+
+/* Style for different images */
+.illustration-grid .ultrawide {
+    grid-column: span 4;
+    /* This makes the ultrawide image span two columns */
+    grid-row: span 1;
+    /* This makes the ultrawide image span two rows */
+}
+
+.illustration-grid .wide {
+    grid-column: span 2;
+    grid-row: span 2;
+
+}
+
+.illustration-grid .square {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.illustration-grid .portrait {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+@media only screen and (max-width: 700px), (max-height: 700px) {
+
+    .illustration-grid .ultrawide {
+        grid-column: span 1;
+        /* This makes the ultrawide image span two columns */
+        grid-row: span 1;
+        /* This makes the ultrawide image span two rows */
+    }
+
+    .illustration-grid .wide {
+        grid-column: span 1;
+        grid-row: span 1;
+
+    }
+
+    .illustration-grid .square {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+    .illustration-grid .portrait {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+}
+
+/* SCROLL BAR WEBKIT*/
+
+.illustration-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.illustration-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 6px;
+}
+
+.illustration-container::-webkit-scrollbar-thumb:hover {
+    background-color: #333;
+}
+
+.illustration-container::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+}
+
+/* END OF WEBKIT */
+
+.illustration-item {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.illustration-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.illustration-item:hover .illustration-text{
+    height: auto; /* Auto height to reveal hidden parts */
+    transform: translateY(0%);
+}
+
+.illustration-item:hover {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.iilustration-item:hover img {
+    transform: scale(1.2);
+}
+
+.illustration-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    padding: 10px 0 0 0;
+    min-height: 30px;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.illustration-text h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.illustration-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index:3;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.image-modal.active {
+    opacity: 1;
+}

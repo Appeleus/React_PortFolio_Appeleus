@@ -5,11 +5,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    animation: fadeIn 0.3s ease-in-out;
+    background-color: black; /* Add a black background */
+    animation: fadeIn 0.5s ease-in-out;
+    z-index: 999; /* Ensure the overlay is on top of other content */
   }
   
   .page-transition.transitioning {
-    animation: fadeOut 0.3s ease-in-out;
+    animation: fadeOut 0.5s ease-in-out;
   }
   
   @keyframes fadeIn {

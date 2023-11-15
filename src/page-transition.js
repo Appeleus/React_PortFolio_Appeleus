@@ -15,7 +15,7 @@ const PageTransition = ({ children }) => {
     // Simulate a delay for the transition (adjust the duration as needed)
     const transitionTimeout = setTimeout(() => {
       setTransitioning(false);
-    }, 300);
+    }, 0);
 
     return () => {
       clearTimeout(transitionTimeout);

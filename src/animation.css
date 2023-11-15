@@ -10,7 +10,6 @@ body {
   width: auto;
   height: 100vh;
   /* Set the container height to fill the viewport */
-  overflow: hidden;
   background-color: rgb(0, 0, 0);
 }
 
@@ -28,33 +27,27 @@ body {
   cursor: pointer;
   z-index: 100;
   width: 100px;
-  /* Adjust as needed */
   height: 100px;
-  /* Adjust as needed */
 }
 
 .up {
-
   left: 10px;
   top: 75px;
   background-image: url("https://www.svgrepo.com/show/533641/arrow-up-left.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  /* Adjust as needed */
-
   background-color: rgba(255, 255, 255, 0.5);
+  padding: 0 0 0 0;
 }
 
 .down {
-
   left: 10px;
   bottom: 50px;
   background-image: url("https://www.svgrepo.com/show/533583/arrow-down-left.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  /* Adjust as needed */
-
   background-color: rgba(255, 255, 255, 0.5);
+  padding: 0 0 0 0;
 }
 
 .dot-navigation {
@@ -85,7 +78,7 @@ body {
 .image-text {
   position: fixed;
   top: 73%;
-  right: 10px;
+  right: 0px;
   transform: translateY(-50%);
   color: #fff;
   font-size: 20px;
@@ -100,6 +93,7 @@ body {
 
 .image {
   position: absolute;
+  width: 100%;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
@@ -115,4 +109,5 @@ body {
 
 .top {
   opacity: 1;
+  z-index: 99; 
 }

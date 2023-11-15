@@ -6,6 +6,7 @@
   height: 100vh;
   overflow: hidden;
   transition: opacity 0.3s ease; /* Add transition for opacity */
+  border:50ox solid #000;
 }
 
 body {
@@ -29,12 +30,11 @@ body {
 .background-layer {
   width: 100%;
   height: 100%;
-  background-image: url('./asset/Zinpreview1.jpg');
+  background-image: url('./asset/Home/BGG_real_0000s_0000.png');
+  display: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  filter: grayscale(30%);
-  transition: transform ease-out; /* Add smooth transition for the parallax effect */
 }
 
 .subject-layer {
@@ -49,6 +49,26 @@ body {
   justify-content: space-around;
 }
 
+/* LAYER SECTION */
+
+/* .layer-1 {   position: relative; z-index: -14}
+.layer-2 {   position: relative;z-index: -13}
+.layer-3 {   position: relative;z-index: -12}
+.layer-4 {   position: relative;z-index: -11}
+.layer-5 {   position: relative;z-index: -10}
+.layer-6 {   position: relative;z-index: -9}
+.layer-7 {   position: relative;z-index: 1}
+.layer-8 {   position: relative;z-index: -7}
+.layer-9 {   position: relative;z-index: -6}
+.layer-10 {   position: relative;z-index: -5}
+.layer-11 {   position: relative;z-index: -4}
+.layer-12 {   position: relative;z-index: -3}
+.layer-13 {   position: relative;z-index: -2}
+.layer-14 {   position: relative;z-index: -1}
+.layer-15 {   position: relative;z-index: -15} */
+
+/* END OF LAYER SECTION */
+
 .circle-row {
   position: fixed;
   bottom: 90px;
@@ -58,7 +78,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   background-color: transparent;
-  z-index: 3; /* Ensure the circles are above other layers */
+  z-index: 31; /* Ensure the circles are above other layers */
 }
 
 .circle {
@@ -72,8 +92,9 @@ body {
   cursor: pointer;
   margin-right: 10px;
   fill: #3498db; /* Set the initial fill color */
-  transition: fill 1s ease-in-out, opacity 1s ease-in-out;
+  transition: fill 0.2s ease-in-out, opacity 0.2s ease-in-out;
   opacity: 0.8; /* Set initial opacity */
+  flex-shrink: 0;
 }
 
 .circle:hover {
@@ -82,19 +103,82 @@ body {
   opacity: 1; /* Set opacity on hover */
 }
 
-
 .circle img {
   width: 70%;
   height: auto;
 }
 
 .contact-info {
-  position: fixed;
+  position: absolute;
   text-align: right;
   color: #fff;
   font-size: 18px;
   margin-right: 20px;
   font-size: 18px;
+  z-index:40;
+  background-color: #ff0000;
 }
+
+.letterbox {
+  position: absolute;
+  overflow: hidden;
+  border-top: 5vh solid #000000;
+  border-bottom: 6vh solid #000000;
+  width: 100%;
+  height: 90.5vh;
+  z-index:31;
+}
+
+@media only screen and (max-width: 700px), (max-height: 700px) {
+
+  .letterbox,
+  .home::before,
+  .home::after {
+    display: none;
+  }
+}
+
+.letterbox::before {
+  content: "";
+  position: absolute;
+  top: 5vh;
+  bottom: 6vh;
+  left: 20vh;
+  right: 20vh;
+  border: 2px solid rgb(255, 255, 255); /* You can adjust the border color and width */
+}
+
+.text-inner {
+  position: absolute;
+  top: 0; 
+  left: 10px; 
+  color: #707070;
+  font-size: 15px;
+  line-height: 0;
+  z-index: 32;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 50%; /* Adjusted */
+  background: linear-gradient(to left, transparent, #000000);
+  z-index: 30;
+}
+
+.home::after {
+  content: "";
+  position: absolute;
+  right:0;
+  bottom: 0;
+  height: 100vh;
+  width: 50%;
+  background: linear-gradient(to right, transparent, #000000);
+  z-index: 30;
+}
+
 
 
