@@ -10,11 +10,13 @@ import Illustration from './illustration';
 
 const Navbar = () => {
 
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState("Home");
   const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation();
   const isAnimation = location.pathname === '/animation';
+  const isIllustration = location.pathname === '/illustration';
+  const isHome = location.pathname === '/home' || location.pathname === '/';
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -35,7 +37,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isAnimation ? 'animation' : ''}`}>
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''} 
+                              ${isAnimation ? 'animation' : ''}
+                              ${isIllustration ? 'illustration' : ''}
+                              ${isHome ? 'Home' : ''}`}>
         <ul>
           <li
             className={selectedItem === 'Home' ? 'selected' : ''}
@@ -47,10 +52,10 @@ const Navbar = () => {
             className={selectedItem === 'Academic Projects' ? 'selected' : ''}
             onClick={() => handleItemClick('Academic Projects')}
           >
-            <NavLink to="/academicProject">Projects</NavLink>
+            <NavLink to="/academicProject">Project</NavLink>
           </li>
           <li className="has-submenu">
-            Hobbies
+            Hobby
             <ul className="submenu">
             <li
                 className={selectedItem === 'Animation' ? 'selected' : ''}

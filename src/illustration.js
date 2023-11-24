@@ -70,7 +70,7 @@ const Illustration = () => {
         } else if (height > width) {
             return aspectRatio >= 0.69 ? 'portrait' : '';
         } else {
-            return 'square'; // Default case, when width and height are equal
+            return 'portrait'; // Default case, when width and height are equal
         }
     };
 

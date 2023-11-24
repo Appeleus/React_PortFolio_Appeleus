@@ -9,35 +9,70 @@ body {
 
 @font-face {
   font-family: 'Quicksand';
-  src: url('./fonts/Quicksand-Regular.ttf') format('truetype');
+  src: url('./fonts/Quicksand/Quicksand-Regular.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Quicksand';
-  src: url('./fonts/Quicksand-Bold.ttf') format('truetype');
+  src: url('./fonts/Quicksand/Quicksand-Bold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
+/* @font-face {
+  font-family: 'Noto Sans Thai';
+  src: url('./fonts/Noto_Serif_Thai/NotoSerifThai-Regular.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai';
+  src: url('./fonts/Noto_Serif_Thai/NotoSerifThai-Bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: 'Mitr', sans-serif;
+  src: url('./fonts/Mitr/Mitr-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mitr', sans-serif;
+  src: url('./fonts/Mitr/Mitr-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 .navbar {
+  font-family: 'Mitr', sans-serif;
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 60px;
   font-size: 25px;
+  font-weight: 200;
   background-color: transparent;
   background-color: rgba(255, 255, 255, 0.8);
-  transition: background-color 0.3s, backdrop-filter 0.3s;
+  backdrop-filter: blur(5px);
+  transition: background-color 0.3s, backdrop-filter 0.3s, padding-bottom 0.4s ease;;
   z-index: 1000;
   text-align: center;
+  padding-bottom: 0;
 }
 
 .navbar a {
-
   text-decoration: none;
   color: #000
+}
+
+.navbar:hover {
+  padding-bottom: 5vh;
 }
 
 .navbar.scrolled {
@@ -61,13 +96,21 @@ li {
   cursor: pointer;
 }
 
-li:hover {
+li:hover,li a:hover {
   background-color: rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease-out;
+  color: #fff;
 }
 
 .selected {
-  text-shadow: 1px 0 black, -1px 0 black, 0 -1px black;
+  text-shadow: 0px 0 black, 0px 0 black, 0 0px black;
+  color:#fff;
+  background: 
+  linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  animation: fadeIn 0.3s ease;
 }
 
 .has-submenu {
@@ -82,6 +125,7 @@ li:hover {
   bottom: 100%;
   width: 200px;
   animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 @keyframes fadeIn {
@@ -117,16 +161,17 @@ li:hover {
 
 .navbar.animation {
   background-color: transparent;
+  color: #fff;
+  transition: background-color 0.2s ease, padding-bottom 0.4s ease;
   /* Set background to transparent on the animations page */
+}
+
+.navbar.animation:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
 .navbar.submenu {
   background-color: transparent;
-}
-
-.navbar.animation {
-  color: #fff;
-  /* Set text color to white on the animations page */
 }
 
 .navbar.animation a {
@@ -135,11 +180,58 @@ li:hover {
 }
 
 .navbar.animation .submenu {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
   /* Set a background color for the submenu on the animations page */
 }
 
 .navbar.animation .submenu li {
+  border-bottom: 2px solid #fff;
+  /* Add a horizontal line between items */
+  padding: 5%;
   color: #ffffff;
   /* Set text color to black for submenu items on the animations page */
 }
+
+.navbar.animation .submenu li:last-child {
+  border-bottom: none;
+}
+
+/* FOR ILLUSTRATION PAGE X NAVBAR*/
+
+.navbar.illustration {
+  background-color: transparent;
+  color: #fff;
+  transition: background-color 0.2s ease, padding-bottom 0.4s ease;
+}
+
+
+.navbar.illustration:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.navbar.illustration a {
+  color: #fff;
+  /* Set text color to white on the animations page */
+}
+
+.navbar.illustration .submenu {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Set a background color for the submenu on the animations page */
+}
+
+.navbar.illustration .submenu li {
+  border-bottom: 2px solid #fff;
+  /* Add a horizontal line between items */
+  padding: 5%;
+  color: #ffffff;
+  /* Set text color to black for submenu items on the animations page */
+}
+
+.navbar.illustration .submenu li:last-child {
+  border-bottom: none;
+}
+
+.navbar.illustration.image-modal .active {
+  backdrop-filter: blur(0px);
+}
+

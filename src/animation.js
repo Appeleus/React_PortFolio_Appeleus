@@ -116,13 +116,14 @@ const Animation = () => {
                     <div
                         key={image.id}
                         className={`image ${index === currentImageIndex ? 'top' : ''}`}
-                    >   <a href={image.videoLink} target="_blank" rel="noopener noreferrer">
+                    >
+                        <a href={image.videoLink} target="_blank" rel="noopener noreferrer">
                             <img src={image.imageUrl} alt={`Image ${index + 1}`} />
-                        
-                        <div className="image-text">
-                            <h2>{image.name}</h2>
-                            <p>{image.description}</p>
-                        </div>
+
+                            <div className="image-text">
+                                <h2>{image.name}</h2>
+                                <p>{image.description}</p>
+                            </div>
                         </a>
                     </div>
                 ))}

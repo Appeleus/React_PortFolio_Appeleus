@@ -119,7 +119,7 @@ const Home = () => {
             const centerX = parallaxContainer.offsetWidth / 2;
             const centerY = parallaxContainer.offsetHeight / 2;
 
-            const maxRangeX = 20; // Set your maximum horizontal range
+            const maxRangeX = 50; // Set your maximum horizontal range
             const maxRangeY = 19; // Set your maximum vertical range
 
             for (const layer of parallaxLayer) {
@@ -215,11 +215,6 @@ const Home = () => {
                 </div>
 
             </div>
-
-
-
-
-
 
             {isContactOpen && <Contact onClose={closeContact} />}
 
