@@ -58,6 +58,13 @@ const Illustration = () => {
             description: 'Description for Image 1',
             imageUrl: 'https://pbs.twimg.com/media/F5Eva-1a0AEMZb_?format=jpg&name=4096x4096',
         },
+        {
+            id: 9,
+            name: 'Q u a s o',
+            description: 'Description for Image 1',
+            imageUrl: 'https://cdn.discordapp.com/attachments/769586344774336552/1174241709564117052/Quaso_Orca.jpg?ex=65701b4f&is=655da64f&hm=8823f3d4826d8530045340d181db6bffe7755355c857cecf8d51c128aff8e8b6&',
+        },
+        
 
     ];
 
