@@ -76,12 +76,15 @@ const Animation = () => {
     const [touchStart, setTouchStart] = useState(0);
 
     const navigateToIndex = (index) => {
-        setCurrentImageIndex((prevIndex) => Math.max(0, Math.min(index, images.length - 1)));
+        setCurrentImageIndex(() => Math.max(0, Math.min(index, images.length - 1)));
     };
 
     const handleArrowClick = (direction) => {
         const newIndex = direction === 'up' ? currentImageIndex - 1 : currentImageIndex + 1;
-        navigateToIndex(newIndex);
+
+            navigateToIndex(newIndex);
+
+
     };
 
     const handleDotClick = (index) => {
@@ -101,12 +104,13 @@ const Animation = () => {
     };
 
     const handleTouchMove = (event) => {
-        const touchEnd = event.touches[0].clientY;
-        const touchDiff = touchEnd - touchStart;
-
-        if (touchDiff > 50) {
+        let touchEnd = event.touches[0].clientY;
+        let touchDiff = (touchEnd - touchStart) % 10;
+        console.log(touchDiff)
+        if (touchDiff == 9) {
             handleArrowClick('up');
-        } else if (touchDiff < -50) {
+
+        } else if (touchDiff == -9) {
             handleArrowClick('down');
         }
     };
