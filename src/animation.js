@@ -104,14 +104,20 @@ const Animation = () => {
     };
 
     const handleTouchMove = (event) => {
-        let touchEnd = event.touches[0].clientY;
-        let touchDiff = (touchEnd - touchStart) % 10;
-        console.log(touchDiff)
-        if (touchDiff == 9) {
-            handleArrowClick('up');
-
-        } else if (touchDiff == -9) {
-            handleArrowClick('down');
+        const touchEnd = event.touches[0].clientY;
+        const touchDiff = touchEnd - touchStart;
+        console.log(touchDiff);
+    
+        const threshold = 50;
+    
+        if (Math.abs(touchDiff) > threshold) {
+            if (touchDiff > 0) {
+                handleArrowClick('up');
+            } else {
+                handleArrowClick('down');
+            }
+            // Reset touchStart to avoid continuous swiping
+            setTouchStart(touchEnd);
         }
     };
 
