@@ -7,6 +7,7 @@ import AcademicProject from './academic-project';
 import Animation from './animation';
 import PageTransition from './page-transition';
 import Illustration from './illustration';
+import Resume from './resume';
 
 const Navbar = () => {
 
@@ -14,9 +15,11 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation();
+  const isProject = location.pathname === '/academicProject';
   const isAnimation = location.pathname === '/animation';
   const isIllustration = location.pathname === '/illustration';
   const isHome = location.pathname === '/home' || location.pathname === '/';
+  const isResume = location.pathname === '/resume';
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -25,6 +28,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 0;
+      console.log(scrolled);
       setIsScrolled(scrolled);
     };
 
@@ -38,40 +42,44 @@ const Navbar = () => {
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''} 
+                              ${isProject ? 'project' : ''}
                               ${isAnimation ? 'animation' : ''}
                               ${isIllustration ? 'illustration' : ''}
-                              ${isHome ? 'Home' : ''}`}>
+                              ${isHome ? 'Home' : ''}
+                              ${isResume ? 'resume' : ''}`}>
         <ul>
           <li
-            className={selectedItem === 'Home' ? 'selected' : ''}
+            className={`col-4 ${selectedItem === 'Home' ? 'selected' : ''}`}
             onClick={() => handleItemClick('Home')}
           >
             <NavLink to="/home">Home</NavLink>
           </li>
           <li
-            className={selectedItem === 'Academic Projects' ? 'selected' : ''}
-            onClick={() => handleItemClick('Academic Projects')}
+            className={`col-4 ${selectedItem === 'academicProject' ? 'selected' : ''}`}
+            onClick={() => handleItemClick('academicProject')}
           >
             <NavLink to="/academicProject">Project</NavLink>
           </li>
-          <li className="has-submenu">
+          <li className="has-submenu col-4">
             Hobby
             <ul className="submenu">
             <li
                 className={selectedItem === 'Animation' ? 'selected' : ''}
                 onClick={() => handleItemClick('Animation')}
               >
-                <NavLink to="/animation">
-                  Animation
-                </NavLink>
+                <NavLink to="/animation">Animation</NavLink>
               </li>
               <li
                 className={selectedItem === 'Illustration' ? 'selected' : ''}
                 onClick={() => handleItemClick('Illustration')}
               >
-                <NavLink to="/illustration">
-                  Illustration
-                </NavLink>
+                <NavLink to="/illustration">Illustration</NavLink>
+              </li>
+              <li
+                className={selectedItem === 'Resume' ? 'selected' : ''}
+                onClick={() => handleItemClick('Resume')}
+              >
+                <NavLink to="/resume">Resume</NavLink>
               </li>
               {/* <li
                 className={selectedItem === 'Instrument' ? 'selected' : ''}
@@ -91,8 +99,8 @@ const Navbar = () => {
         <Route path="/academicProject" element={<PageTransition><AcademicProject /></PageTransition>} />
         <Route path="/animation" element={<PageTransition><Animation /></PageTransition>} />
         <Route path="/illustration" element={<PageTransition><Illustration /></PageTransition>} />
+        <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
         {/* <Route path="/instrument" element={<PageTransition><Home /></PageTransition>} /> */}
-
       </Routes>
     </>
   );

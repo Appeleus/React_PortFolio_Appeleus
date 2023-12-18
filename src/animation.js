@@ -73,6 +73,7 @@ const Animation = () => {
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState(0);
 
     const navigateToIndex = (index) => {
         setCurrentImageIndex((prevIndex) => Math.max(0, Math.min(index, images.length - 1)));
@@ -87,12 +88,40 @@ const Animation = () => {
         navigateToIndex(index);
     };
 
+    const handleScroll = (event) => {
+        if (event.deltaY > 0) {
+            handleArrowClick('down');
+        } else {
+            handleArrowClick('up');
+        }
+    };
+
+    const handleTouchStart = (event) => {
+        setTouchStart(event.touches[0].clientY);
+    };
+
+    const handleTouchMove = (event) => {
+        const touchEnd = event.touches[0].clientY;
+        const touchDiff = touchEnd - touchStart;
+
+        if (touchDiff > 50) {
+            handleArrowClick('up');
+        } else if (touchDiff < -50) {
+            handleArrowClick('down');
+        }
+    };
+
     useEffect(() => {
         console.log('State updated:', currentImageIndex);
     }, [currentImageIndex]);
 
     return (
-        <div className="animation-container">
+        <div
+            className="animation-container"
+            onWheel={handleScroll}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+        >
             {/* Up arrow */}
             <div className="arrow up" onClick={() => handleArrowClick('up')}></div>
 
@@ -129,6 +158,7 @@ const Animation = () => {
                 ))}
             </div>
         </div>
+
     );
 };
 

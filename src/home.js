@@ -19,12 +19,12 @@ const Home = () => {
     const closeContact = () => setContactOpen(false);
 
     const parallaxLayer = [
-        // {
-        //     id: 1,
-        //     imgPath: "./asset/Home/BGG_real_0000s_0000.png",
-        //     speedDivider: 5,
-        //     zIndex: 1
-        // },
+        {
+            id: 1,
+            imgPath: "./asset/Home/BGG_real_0000s_0000.png",
+            speedDivider: 5,
+            zIndex: 1
+        },
         {
             id: 2,
             imgPath: "./asset/Home/BGG_real_0000s_0001.png",
@@ -37,18 +37,18 @@ const Home = () => {
             speedDivider: 2,
             zIndex: 3
         },
+        // // {
+        // //     id: 4,
+        // //     imgPath: "./asset/Home/BGG_real_0000s_0003.png",
+        // //     speedDivider: 1.5,
+        // //     zIndex: 4
+        // // },
         // {
-        //     id: 4,
-        //     imgPath: "./asset/Home/BGG_real_0000s_0003.png",
+        //     id: 5,
+        //     imgPath: "./asset/Home/BGG_real_0000s_0004.png",
         //     speedDivider: 1.5,
-        //     zIndex: 4
+        //     zIndex: 5
         // },
-        {
-            id: 5,
-            imgPath: "./asset/Home/BGG_real_0000s_0004.png",
-            speedDivider: 1.5,
-            zIndex: 5
-        },
         {
             id: 6,
             imgPath: "./asset/Home/BGG_real_0000s_0005.png",
@@ -61,12 +61,12 @@ const Home = () => {
             speedDivider: 1,
             zIndex: 7
         },
-        {
-            id: 8,
-            imgPath: "./asset/Home/BGG_real_0000s_0007.png",
-            speedDivider: 0.5,
-            zIndex: 8
-        },
+        // {
+        //     id: 8,
+        //     imgPath: "./asset/Home/BGG_real_0000s_0007.png",
+        //     speedDivider: 0.5,
+        //     zIndex: 8
+        // },
         {
             id: 9,
             imgPath: "./asset/Home/BGG_real_0000s_0008.png",
@@ -85,24 +85,24 @@ const Home = () => {
             speedDivider: 0.5,
             zIndex: 11
         },
-        // {
-        //     id: 12,
-        //     imgPath: "./asset/Home/BGG_real_0000s_0011.png",
-        //     speedDivider: 1.5,
-        //     zIndex: 12
-        // },
+        {
+            id: 12,
+            imgPath: "./asset/Home/BGG_real_0000s_0011.png",
+            speedDivider: 1.5,
+            zIndex: 12
+        },
         // {
         //     id: 13,
         //     imgPath: "./asset/Home/BGG_real_0000s_0012.png",
         //     speedDivider: 2,
         //     zIndex: 13
         // },
-        // {
-        //     id: 14,
-        //     imgPath: "./asset/Home/BGG_real_0000s_0013.png",
-        //     speedDivider: 1.5,
-        //     zIndex: 14
-        // },
+        {
+            id: 14,
+            imgPath: "./asset/Home/BGG_real_0000s_0013.png",
+            speedDivider: 1.5,
+            zIndex: 14
+        },
         {
             id: 15,
             imgPath: "./asset/Home/Me.png",
@@ -112,6 +112,27 @@ const Home = () => {
     ]
 
     useEffect(() => {
+            const loadImages = async () => {
+
+                for (const layer of parallaxLayer) {
+                    const layerElement = document.getElementById(`layer-${layer.id}`);
+    
+                    // Dynamically import the image
+                    try {
+                        const imgModule = await import(`${layer.imgPath}`);
+                        const imgSrc = imgModule.default;
+    
+                        // Update the image source
+                        layerElement.src = imgSrc;
+                    } catch (error) {
+                        console.error('Error loading image:', error);
+                    }
+                }
+            };
+    
+            // Load images once when the component mounts
+            loadImages();
+            
         const handleMouseMove = async (e) => {
             const parallaxContainer = document.querySelector('.background-layer');
             const { clientX, clientY } = e;
@@ -147,6 +168,11 @@ const Home = () => {
         };
 
         const parallaxContainer = document.querySelector('.home');
+
+        window.addEventListener("load", () => {
+            console.log("page is fully loaded");
+        });
+
         parallaxContainer.addEventListener('mousemove', handleMouseMove);
 
         return () => {
@@ -164,7 +190,7 @@ const Home = () => {
                     <p>Everything designed by Delicious Apple (Got)</p>
                 </div>
             </div>
-            {/* Parallax Background */}
+
             {isHome && (
                 <div className="circle-row">
 
@@ -194,6 +220,7 @@ const Home = () => {
                 </div>
             )}
 
+            {/* Parallax Background */}
             <div className="background-container">
                 <div className="background-layer"></div>
 

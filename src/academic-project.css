@@ -3,6 +3,7 @@
 body {
   overflow: hidden;
   background-color: #aaa;
+  font-family: 'Quicksand';
 }
 
 .project-card h2,
@@ -153,25 +154,3 @@ body {
 .overlay.next {
   z-index: -1; /* Push it behind the active card */
 }
-
-/* SCROLL BAR WEBKIT*/
-
-.project-card-container::-webkit-scrollbar {
-  width: 12px;
-}
-
-.project-card-container::-webkit-scrollbar-thumb {
-  background-color: #555;
-  border-radius: 6px;
-}
-
-.project-card-container::-webkit-scrollbar-thumb:hover {
-  background-color: #333;
-}
-
-.project-card-container::-webkit-scrollbar-track {
-  background-color: #f5f5f5;
-  border-radius: 6px;
-}
-
-/* END OF WEBKIT */

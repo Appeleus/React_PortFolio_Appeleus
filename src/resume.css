@@ -1,0 +1,230 @@
+@import url("custom-bootstrap.css");
+
+@font-face {
+    font-family: 'SuperspaceBold';
+    src: url('./fonts/Superspace/SuperspaceBold.ttf') format('truetype');
+
+}
+
+@font-face {
+    font-family: 'SuperspaceLight';
+    src: url('./fonts/Superspace/SuperspaceLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCondensed';
+    src: url('./fonts/Helvetica/HelveticaNeueCondensedBlack.ttf') format('truetype');
+}
+
+.resume-page {
+    background-color: #e3d4cd;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.resume-page .container-fluid {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .resume-page .container-sm, .resume-page .container {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    .resume-page .container-md, .resume-page .container-sm, .resume-page .container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 992px) {
+    .resume-page .container-lg, .resume-page .container-md, .resume-page .container-sm, .resume-page .container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .resume-page .container-xl, .resume-page .container-lg, .resume-page .container-md, .resume-page .container-sm, .resume-page .container {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: 1400px) {
+    .resume-page .container-xxl, .resume-page .container-xl, .resume-page .container-lg, .resume-page .container-md, .resume-page .container-sm, .resume-page .container {
+      max-width: 1320px;
+    }
+  }
+
+.container-bg {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.profile-image {
+    box-shadow: 15px 0px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    top: 0;
+    position: relative;
+    max-width: 500px;
+}
+
+.rounded-corner {
+    display: block;
+    justify-content: center;
+    border-radius: 5px;
+    height: 10px;
+    background-color: white;
+}
+
+.hide-bullet-point {
+    list-style-type: none;
+}
+
+.rm-white-space {
+    padding: 0px;
+}
+
+.dash>li {
+    list-style-type: none;
+}
+
+.dash>li:before {
+    content: "- ";
+}
+
+.bold {
+    font-family: 'superspaceBold';
+    font-weight: bold;
+}
+
+.vertical-hr {
+    position: relative;
+    min-height: 80px;
+    /* Adjust as needed */
+    display: flex;
+    align-items: center;
+}
+
+.vertical-hr::before {
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    /* Adjust color as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-spacing {
+    padding: 5px 0px 0px;
+}
+
+.main-col-padding {
+    padding: 0px 20px 0px 20px;
+}
+
+.pink {
+    color: #ed8d9b;
+}
+
+.banner-container {
+    display: block;
+    background-color: #ee5166;
+}
+
+.resume-page hr {
+    border-top: solid 1px white;
+    margin: 0px 0px;
+    opacity: 1;
+}
+
+ul {
+    margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+.resume-page p {
+    margin: 0px 0px 8px;
+}
+
+.two-tab::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+    /* 7 non-breaking spaces */
+    display: inline-block;
+}
+
+.no-text-break {
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+/* Font Settings */
+
+.header {
+    font-family: 'HelveticaNeueCondensed' !important;
+    color: white;
+    text-align: center;
+    font-size: 22pt !important;
+    padding: 5px;
+}
+
+.sub-header-bold {
+    font-family: 'superspaceBold';
+    font-size: 20pt;
+    color: #ed8d9b;
+}
+
+.resume-page div {
+    font-family: 'superspaceLight';
+    color: white;
+    font-size: 12pt;
+}
+
+.small-font {
+    font-size: 10pt;
+}
+
+@media (max-width: 846px) {
+
+    .resume-page {
+        background-color: #e3d4cd;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 100vh;
+    }
+
+    .container-bg {
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .resume-page .container-fluid {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .col-6 {
+        flex: 0 0 auto;
+        width: 100%;
+      }
+
+      .d-rsm-block {
+        display: block !important;
+      }
+
+      .d-rsm-none {
+        display: none !important;
+      }
+
+}
