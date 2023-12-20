@@ -290,6 +290,7 @@ const Resume = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
 
 

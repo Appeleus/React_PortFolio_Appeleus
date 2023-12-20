@@ -2,6 +2,7 @@
 
 body {
   background-color: black;
+  touch-action: none;
 }
 
 .animation-container {
@@ -107,6 +108,7 @@ body {
   position: absolute;
   width:5%;
   height: 50%;
+  transform: translateX(-50%);
   background: url("https://www.svgrepo.com/show/486225/down-arrow-backup-3.svg") center/contain no-repeat;
   transition: left 0.3s ease-out;
 }
@@ -118,6 +120,7 @@ body {
   position: absolute;
   width: 5%;
   height: 50%;
+  transform: translateX(-50%);
   background: url("https://www.svgrepo.com/show/486227/down-arrow-backup-2.svg") center/contain no-repeat;
   transition: left 0.3s ease-out;
 }

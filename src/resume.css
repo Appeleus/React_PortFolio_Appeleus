@@ -192,14 +192,6 @@ ul {
 
 @media (max-width: 846px) {
 
-    .resume-page {
-        background-color: #e3d4cd;
-        padding: 20px;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        height: 100vh;
-    }
-
     .container-bg {
         padding: 0;
         background-color: rgba(0, 0, 0, 0.5);
