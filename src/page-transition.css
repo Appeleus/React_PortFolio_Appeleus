@@ -1,8 +1,6 @@
 /* page-transition.css */
 
 .page-transition {
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: black; /* Add a black background */
@@ -11,7 +9,7 @@
   }
   
   .page-transition.transitioning {
-    animation: fadeOut 0.5s ease-in-out;
+    animation: fadeOut 0.5s ease-out;
   }
   
   @keyframes fadeIn {

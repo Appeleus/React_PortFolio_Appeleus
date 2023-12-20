@@ -81,10 +81,7 @@ const Animation = () => {
 
     const handleArrowClick = (direction) => {
         const newIndex = direction === 'up' ? currentImageIndex - 1 : currentImageIndex + 1;
-
-            navigateToIndex(newIndex);
-
-
+        navigateToIndex(newIndex);
     };
 
     const handleDotClick = (index) => {
@@ -100,18 +97,22 @@ const Animation = () => {
     };
 
     const handleTouchStart = (event) => {
-        setTouchStart(event.touches[0].clientY);
+        setTouchStart({ x: event.touches[0].clientX, y: event.touches[0].clientY });
     };
 
     const handleTouchMove = (event) => {
-        const touchEnd = event.touches[0].clientY;
-        const touchDiff = touchEnd - touchStart;
-        console.log(touchDiff);
-    
-        const threshold = 50;
-    
-        if (Math.abs(touchDiff) > threshold) {
-            if (touchDiff > 0) {
+        const touchEnd = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+
+        // Calculate the distance between starting and ending points
+        const touchDiffX = touchEnd.x - touchStart.x;
+        const touchDiffY = touchEnd.y - touchStart.y;
+        const touchDistance = Math.sqrt(touchDiffX ** 2 + touchDiffY ** 2);
+
+        const threshold = window.innerHeight / 8;
+        console.log(touchDistance);
+
+        if (touchDistance > threshold) {
+            if (touchDiffY > 0) {
                 handleArrowClick('up');
             } else {
                 handleArrowClick('down');
@@ -121,53 +122,60 @@ const Animation = () => {
         }
     };
 
+
     useEffect(() => {
         console.log('State updated:', currentImageIndex);
     }, [currentImageIndex]);
 
     return (
-        <div
-            className="animation-container"
-            onWheel={handleScroll}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-        >
-            {/* Up arrow */}
-            <div className="arrow up" onClick={() => handleArrowClick('up')}></div>
+        <div class="card card-container">
+            <div
+                className="animation-container"
+                onWheel={handleScroll}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+            >
+                {/* Up arrow */}
+                <div className="arrow up" onClick={() => handleArrowClick('up')}></div>
 
-            {/* Down arrow */}
-            <div className="arrow down" onClick={() => handleArrowClick('down')}></div>
 
-            {/* Dot navigation */}
-            <div className="dot-navigation">
-                {images.map((image, index) => (
-                    <div
-                        key={image.id}
-                        className={`dot ${index === currentImageIndex ? 'active' : ''}`}
-                        onClick={() => handleDotClick(index)}
-                    />
-                ))}
-            </div>
 
-            {/* Image stack */}
-            <div className="image-stack">
-                {images.map((image, index) => (
-                    <div
-                        key={image.id}
-                        className={`image ${index === currentImageIndex ? 'top' : ''}`}
-                    >
-                        <a href={image.videoLink} target="_blank" rel="noopener noreferrer">
-                            <img src={image.imageUrl} alt={`Image ${index + 1}`} />
+                {/* Dot navigation */}
+                <div className="dot-navigation">
+                    {images.map((image, index) => (
+                        <div
+                            key={image.id}
+                            className={`dot ${index === currentImageIndex ? 'active' : ''}`}
+                            onClick={() => handleDotClick(index)}
+                        />
+                    ))}
+                </div>
 
-                            <div className="image-text">
-                                <h2>{image.name}</h2>
-                                <p>{image.description}</p>
-                            </div>
-                        </a>
-                    </div>
-                ))}
+                {/* Image stack */}
+                <div className="image-stack" style={{ overflow: 'hidden' }}>
+                    {images.map((image, index) => (
+                        <div
+                            key={image.id}
+                            className={`image ${index === currentImageIndex ? 'top' : ''}`}
+                        >
+                            <a href={image.videoLink} target="_blank" rel="noopener noreferrer">
+                                <img src={image.imageUrl} alt={`Image ${index + 1}`} />
+
+                                <div className="image-text">
+                                    <h2>{image.name}</h2>
+                                    <p>{image.description}</p>
+                                </div>
+                            </a>
+                        </div>
+                    ))}
+
+                </div>
+                {/* Down arrow */}
+                <div className="arrow down align-items-end" style={{ bottom: '60px' }} onClick={() => handleArrowClick('down')}></div>
             </div>
         </div>
+
+
 
     );
 };
