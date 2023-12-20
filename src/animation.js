@@ -82,6 +82,11 @@ const Animation = () => {
     const handleArrowClick = (direction) => {
         const newIndex = direction === 'up' ? currentImageIndex - 1 : currentImageIndex + 1;
         navigateToIndex(newIndex);
+        if (direction === 'up' && currentImageIndex == 0) {
+            navigateToIndex(images.length);
+        } else if (direction === 'down' && (currentImageIndex == images.length - 1)) {
+            navigateToIndex(0);
+        }
     };
 
     const handleDotClick = (index) => {
@@ -128,7 +133,7 @@ const Animation = () => {
     }, [currentImageIndex]);
 
     return (
-        <div class="card card-container">
+        <div className="card card-container">
             <div
                 className="animation-container"
                 onWheel={handleScroll}
@@ -158,14 +163,16 @@ const Animation = () => {
                             key={image.id}
                             className={`image ${index === currentImageIndex ? 'top' : ''}`}
                         >
-                            <a href={image.videoLink} target="_blank" rel="noopener noreferrer">
-                                <img src={image.imageUrl} alt={`Image ${index + 1}`} />
+                            <div className="bg-open-link">
+                                <a href={image.videoLink} target="_blank" rel="noopener noreferrer">Open</a>
+                            </div>
+                            <img src={image.imageUrl} alt={`Image ${index + 1}`} />
 
-                                <div className="image-text">
-                                    <h2>{image.name}</h2>
-                                    <p>{image.description}</p>
-                                </div>
-                            </a>
+                            <div className="image-text">
+                                <h2>{image.name}</h2>
+                                <p>{image.description}</p>
+                            </div>
+
                         </div>
                     ))}
 

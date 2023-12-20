@@ -21,18 +21,38 @@ body {
   position: relative;
   overflow: hidden;
   perspective: 23rem;
-  transition: transform 0.4s ease-in-out; /* Add a smooth transition */
+  transition: transform 0.4s ease-in-out;
+  /* Add a smooth transition */
 }
-
-
 
 @keyframes parallaxAnimation {
   from {
     transform: perspective(1000px) translateZ(0);
   }
+
   to {
     transform: perspective(1000px) translateZ(-100px);
   }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .animation-container img {
+    object-fit: cover;
+    padding: 10%;
+    border-radius: 80px;
+    transition: padding 0.4s, border-radius 0.4s ease-in-out
+  }
+
+  .animation-container img:hover {
+    padding: 0%;
+    border-radius: 0px;
+  }
+
+  .top {
+    transform: scale(0.95);
+  }
+
 }
 
 .arrow {
@@ -48,11 +68,12 @@ body {
 @media only screen and (max-height: 666px) {
 
   .arrow {
-    justify-content: start;
+    justify-content: end;
   }
 
-  .arrow.up::after {
-    align-items: center;
+  .arrow.up::after,
+  .arrow.down::after {
+    left: 10% !important;
   }
 
   .arrow.up::before,
@@ -60,46 +81,14 @@ body {
     display: none;
   }
 
-  .arrow.down::before {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0,0));
-  }
-
 }
 
-@media only screen and (max-width: 500px) {
-  .animation-container img {
-    object-fit: cover;
-    padding: 10%;
-    border-radius: 80px; 
-    transition: padding 0.4s, border-radius 0.4s ease-in-out
-  }
-  .animation-container img:hover {
-    padding: 0%;
-    border-radius: 0px;
-  }
-
-  .top {
-    transform: scale(0.95);
-  }
-
-}
 .arrow.up::before {
   content: '';
   position: absolute;
   width: 100%;
   height: 25%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0), rgb(0, 0, 0, 0.5));
-  transition: display 0.2s ease-in-out;
-}
-
-.arrow.up::after {
-  filter: invert(1);
-  content: '';
-  align-items: start;
-  position: absolute;
-  width: 25%;
-  height: 50%;
-  background: url("https://www.svgrepo.com/show/486225/down-arrow-backup-3.svg") center/contain no-repeat;
 }
 
 .arrow.down::before {
@@ -110,13 +99,27 @@ body {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0, 0.5));
 }
 
+.arrow.up::after {
+  left: 50%;
+  filter: invert(1);
+  content: '';
+  align-items: center;
+  position: absolute;
+  width:5%;
+  height: 50%;
+  background: url("https://www.svgrepo.com/show/486225/down-arrow-backup-3.svg") center/contain no-repeat;
+  transition: left 0.3s ease-out;
+}
+
 .arrow.down::after {
+  left: 50%;
   filter: invert(1);
   content: '';
   position: absolute;
-  width: 25%;
+  width: 5%;
   height: 50%;
   background: url("https://www.svgrepo.com/show/486227/down-arrow-backup-2.svg") center/contain no-repeat;
+  transition: left 0.3s ease-out;
 }
 
 .dot-navigation {
@@ -183,7 +186,7 @@ body {
   position: absolute;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.3s, transform 0.5s  ease-in-out;
+  transition: opacity 0.3s, transform 0.5s ease-in-out;
 }
 
 .image img {
@@ -196,6 +199,35 @@ body {
   margin: 10px;
 }
 
+.bg-open-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 100%;
+  z-index: 100;
+  height: 0;
+  opacity: 0;
+  transition: height 0.5s, opacity 0.3s ease-out;
+}
+
+.bg-open-link a {
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.image:hover .bg-open-link {
+  height: 15%;
+  opacity: 1;
+}
+
+
 .top {
   opacity: 1;
   z-index: 99;
@@ -203,5 +235,5 @@ body {
 
 .card-container {
   /* border-radius: 15px 50px; */
-  background-color: black !important; 
+  background-color: black !important;
 }

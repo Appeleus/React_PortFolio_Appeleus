@@ -78,8 +78,8 @@
   color: #fff;
 }
 
-.navbar:hover {
-  padding-bottom: 7vh;
+.navbar:active, .navbar:hover {
+  padding-bottom: 10vh;
 }
 
 .navbar.scrolled {
