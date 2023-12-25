@@ -82,6 +82,7 @@ const Illustration = () => {
     };
 
     useEffect(() => {
+        document.title = `Illustration🎨`;
         const imgPromises = illustrations.map((illustration) => {
             return new Promise((resolve) => {
                 const img = new Image();

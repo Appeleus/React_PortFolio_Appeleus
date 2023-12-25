@@ -17,6 +17,7 @@ const Resume = () => {
     const screenIsWide = () => (window.innerWidth > 845 ? 'col-5' : 'col-6');
 
     useEffect(() => {
+        document.title = `Resume📑`;
         setColClass(screenIsWide());
 
         // Update class when the window is resized
@@ -40,7 +41,7 @@ const Resume = () => {
                     <div className="row">
                         <div className="col-6 main-col-padding">
                             <div className="col d-flex justify-content-center">
-                                <img src="https://cdn.discordapp.com/avatars/300933528659427329/e760c0b62e3d874026381709310d2684.png?size=4096"
+                                <img src="https://cdn.discordapp.com/avatars/300933528659427329/fc0a0a97a7caa95cefd3f60c8f908340.png?size=4096"
                                     alt="pfp" className="profile-image" />
 
                             </div>

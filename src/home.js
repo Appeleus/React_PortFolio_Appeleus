@@ -112,27 +112,27 @@ const Home = () => {
     ]
 
     useEffect(() => {
-            const loadImages = async () => {
+        const loadImages = async () => {
 
-                for (const layer of parallaxLayer) {
-                    const layerElement = document.getElementById(`layer-${layer.id}`);
-    
-                    // Dynamically import the image
-                    try {
-                        const imgModule = await import(`${layer.imgPath}`);
-                        const imgSrc = imgModule.default;
-    
-                        // Update the image source
-                        layerElement.src = imgSrc;
-                    } catch (error) {
-                        console.error('Error loading image:', error);
-                    }
+            for (const layer of parallaxLayer) {
+                const layerElement = document.getElementById(`layer-${layer.id}`);
+
+                // Dynamically import the image
+                try {
+                    const imgModule = await import(`${layer.imgPath}`);
+                    const imgSrc = imgModule.default;
+
+                    // Update the image source
+                    layerElement.src = imgSrc;
+                } catch (error) {
+                    console.error('Error loading image:', error);
                 }
-            };
-    
-            // Load images once when the component mounts
-            loadImages();
-            
+            }
+        };
+
+        // Load images once when the component mounts
+        loadImages();
+
         const handleMouseMove = async (e) => {
             const parallaxContainer = document.querySelector('.background-layer');
             const { clientX, clientY } = e;
@@ -166,6 +166,8 @@ const Home = () => {
                 }
             }
         };
+
+        document.title = `Home🏡`;
 
         const parallaxContainer = document.querySelector('.home');
 

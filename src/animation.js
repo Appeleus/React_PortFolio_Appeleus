@@ -130,6 +130,7 @@ const Animation = () => {
 
     useEffect(() => {
         console.log('State updated:', currentImageIndex);
+        document.title = `Animation💻`;
     }, [currentImageIndex]);
 
     return (

@@ -131,6 +131,7 @@ const AcademicProject = () => {
 
   useEffect(() => {
     console.log('Project updated:', currentProjectIndex);
+    document.title = `Project✨`;
   }, [currentProjectIndex]);
 
   return (
