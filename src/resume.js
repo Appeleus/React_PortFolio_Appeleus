@@ -13,16 +13,21 @@ const Resume = () => {
     const isResume = location.pathname === '/resume';
 
     const [colClass, setColClass] = useState('');
+    const [WideClass, setWideClass] = useState(false);
 
-    const screenIsWide = () => (window.innerWidth > 845 ? 'col-5' : 'col-6');
+
+    const screenIsWide = () => (window.innerWidth > 843 ? 'col-5' : 'col-6');
+    const resumeWidth = () => (window.innerWidth > 843 ? true : false);
 
     useEffect(() => {
         document.title = `Resume📑`;
         setColClass(screenIsWide());
+        setWideClass(resumeWidth());
 
         // Update class when the window is resized
         const handleResize = () => {
             setColClass(screenIsWide());
+            setWideClass(resumeWidth());
         };
 
         window.addEventListener('resize', handleResize);
@@ -63,12 +68,12 @@ const Resume = () => {
                                         <div className="col">
                                             <ul>
                                                 <li className="bold">Debsirin Nonthaburi School</li>
-                                                2014 - 2019
+                                                <p>2014 - 2019</p>
                                                 <li className="bold">King Mongkut's University of Technology North Bangkok</li>
-                                                2020 - Present<br />
-                                                <i className="bi bi-chevron-right"></i>College of Industrial Technology<br />
-                                                &nbsp;&nbsp;<i className="bi bi-chevron-right"></i>Electronic Engineering Technology
-                                                (Computer)
+                                                <p className="line-spacing">2020 - Present<br />
+                                                    <i className="bi bi-chevron-right"></i>College of Industrial Technology<br />
+                                                    &nbsp;&nbsp;<i className="bi bi-chevron-right"></i>Electronic Engineering Technology
+                                                    (Computer)</p>
                                             </ul>
                                         </div>
                                     </div>
@@ -109,30 +114,40 @@ const Resume = () => {
                                     <span className="sub-header-bold">DETAILS</span>
                                     <hr />
                                     <div className="row top-spacing">
+
                                         <div className="col-3 bold">
-                                            <ul className="hide-bullet-point rm-white-space">
+                                            <ul className="hide-bullet-point rm-white-space text-y-spacing">
                                                 <li>Nickname</li>
                                                 <li>Date of Birth</li>
                                                 <li>Age</li>
                                             </ul>
                                         </div>
-                                        <div className="col-3">
-                                            <ul className="hide-bullet-point rm-white-space">
-                                                <li>: Got</li>
-                                                <li>: 1 April 2002</li>
-                                                <li>: 21</li>
+                                        <div className="col-1">
+                                            <ul className="hide-bullet-point rm-white-space text-y-spacing">
+                                                <li>:</li>
+                                                <li>:</li>
+                                                <li>:</li>
                                             </ul>
                                         </div>
-                                        <div className="col-1 bold">
-                                            <ul className="hide-bullet-point rm-white-space">
+                                        <div className="col-3 rm-white-space">
+                                            <ul className="hide-bullet-point rm-white-space text-y-spacing">
+                                                <li>Got</li>
+                                                <li>1 April 2002</li>
+                                                <li>21</li>
+                                            </ul>
+                                        </div>
+
+                                        <div className="col-1 bold" style={{ paddingLeft: '0px' }}>
+                                            <ul className="hide-bullet-point rm-white-space text-y-spacing">
                                                 <li>MBTI</li>
                                             </ul>
                                         </div>
-                                        <div className="col-5">
-                                            <ul className="hide-bullet-point rm-white-space">
-                                                <li>: INFP</li>
+                                        <div className="col-1" style={{ paddingLeft: '0px' }}>
+                                            <ul className="hide-bullet-point rm-white-space text-y-spacing">
+                                                <li> : INFP</li>
                                             </ul>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -140,14 +155,14 @@ const Resume = () => {
                             <div className="row no-text-break">
                                 <div className="col-6">
                                     <div className="row">
-                                        <div className="col">
+                                        <div className="col" style={WideClass ? { paddingRight: '0px' } : {}}>
                                             <span className="sub-header-bold">CONTACT</span>
                                             <hr />
                                         </div>
                                     </div>
                                     <div className="row top-spacing">
                                         <div className="col">
-                                            <ul className="hide-bullet-point rm-white-space small-font">
+                                            <ul className="hide-bullet-point rm-white-space small-font text-y-spacing">
                                                 <li><i className="bi bi-envelope-fill pink"></i> gotkunglovely@outlook.co.th</li>
                                                 <li><i className="bi bi-telephone-outbound-fill pink"></i> 099-165-0212</li>
                                                 <li><i className="bi bi-github pink"></i> https://github.com/Appeleus</li>
@@ -157,27 +172,26 @@ const Resume = () => {
                                 </div>
 
                                 <div className="col-1 d-rsm-none d-rsm-block">
-                                    <div className="row" style={{ minHeight: '3.5rem' }}>
+                                    <div className="row" style={{ minHeight: '3rem' }}>
                                     </div>
                                     <div className="row">
-                                        <div className="col vertical-hr">
-                                            <div className=""></div>
-                                        </div>
+                                        <div className="col vertical-hr"></div>
                                     </div>
                                 </div>
+
                                 <div className={colClass}>
                                     <div className="row">
-                                        <div className="col">
+                                        <div className="col" style={WideClass ? { paddingLeft: '0px' } : {}}>
                                             <span className="sub-header-bold">SOCIAL</span>
                                             <hr />
                                         </div>
                                     </div>
                                     <div className="row top-spacing">
-                                        <div className="col">
-                                            <ul className="hide-bullet-point rm-white-space small-font">
-                                                <li><img src={require('./asset/Resume/yt-logo.png')} alt="yt" width="20px" /> Tanoshii R1NK0</li>
-                                                <li><img src={require('./asset/Resume/twitter-logo.png')} alt="twitter" width="20px" /> @TanoshiRinko</li>
-                                                <li><img src={require('./asset/Resume/fb-logo.png')} alt="fb" width="20px" /> Apple Mentos</li>
+                                        <div className="col" style={WideClass ? { paddingLeft: '0px' } : {}}>
+                                            <ul className="hide-bullet-point rm-white-space small-font text-y-spacing">
+                                                <li><img src={require('./asset/Resume/yt-logo.png')} alt="yt" width="15px" /> Tanoshii R1NK0</li>
+                                                <li><img src={require('./asset/Resume/twitter-logo.png')} alt="twitter" width="15px" /> @TanoshiRinko</li>
+                                                <li><img src={require('./asset/Resume/fb-logo.png')} alt="fb" width="15px" /> Apple Mentos</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -191,7 +205,7 @@ const Resume = () => {
                                     <hr />
                                     <div className="row top-spacing">
                                         <div className="col">
-                                            <p>&nbsp;&nbsp;I’m currently studying for a bachelor’s degree in Electronic Engineering -
+                                            <p className="line-spacing">&nbsp;&nbsp;I’m currently studying for a bachelor’s degree in Electronic Engineering -
                                                 Computer. I’ve
                                                 learned
                                                 a variety of things throughout my years in this university, such as hardware, software
@@ -212,16 +226,16 @@ const Resume = () => {
                                     <hr />
                                     <div className="row top-spacing">
                                         <div className="col">
-                                            <ul>
+                                            <ul className="line-spacing">
                                                 <li className="bold">Designed a REST API for University student grading website</li>
-                                                <i className="bi bi-chevron-right"></i> With APIary and Postman
+                                                <p className="normal-font"><i className="bi bi-chevron-right"></i> With APIary and Postman</p>
 
                                                 <li className="bold">Web application : Food community webboard Mini Project</li>
-                                                <i className="bi bi-chevron-right"></i> Designed most of the website pages with Bootstrap 5.
+                                                <p className="normal-font no-text-break"><i className="bi bi-chevron-right"></i> Designed most of the website pages with Bootstrap 5.</p>
 
                                                 <li className="bold">Mobile App & Web app : Perforkid Childcare Application</li>
-                                                <i className="bi bi-chevron-right"></i> Designed with Flutterflow for Mobile app.<br />
-                                                And Bootstrap and Javascript for Web application.
+                                                <p className="normal-font"><i className="bi bi-chevron-right"></i> Designed with Flutterflow for Mobile app.<br />
+                                                    And Bootstrap and Javascript for Web application.</p>
                                             </ul>
                                         </div>
                                     </div>
@@ -262,7 +276,7 @@ const Resume = () => {
                                     <div className="row top-spacing">
                                         <div className="col-6">
                                             <ul className="dash rm-white-space">
-                                                <span className="bold">Program</span>
+                                                <span className="bold rm-white-space"><p>Program</p></span>
                                                 <li>Adobe Photoshop</li>
                                                 <li>Adobe Premiere Pro</li>
                                                 <li>Adobe After Effect</li>
@@ -274,12 +288,12 @@ const Resume = () => {
                                         </div>
                                         <div className="col-6">
                                             <ul className="dash rm-white-space">
-                                                <span className="bold">Computer Language</span>
+                                                <span className="bold"><p>Computer Language</p></span>
                                                 <li>HTML, CSS, PHP</li>
                                                 <li>Javascript</li>
                                                 <li>Python</li>
                                                 <li>Java</li>
-                                                <span className="bold">Framework</span>
+                                                <span className="bold"><p>Framework</p></span>
                                                 <li>Bootstrap 5</li>
                                                 <li>React JS</li>
                                             </ul>

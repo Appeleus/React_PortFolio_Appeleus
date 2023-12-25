@@ -1,14 +1,25 @@
 @import url("custom-bootstrap.css");
 
 @font-face {
-    font-family: 'SuperspaceBold';
-    src: url('./fonts/Superspace/SuperspaceBold.ttf') format('truetype');
+    font-family: 'SuperspaceBoldotf';
+    src: url('./fonts/Superspace/SuperspaceBoldotf.otf') format('opentype');
 
 }
 
 @font-face {
-    font-family: 'SuperspaceLight';
-    src: url('./fonts/Superspace/SuperspaceLight.ttf') format('truetype');
+    font-family: 'SuperspaceLightotf';
+    src: url('./fonts/Superspace/SuperspaceLightotf.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SuperspaceBoldttf';
+    src: url('./fonts/Superspace/SuperspaceBoldttf.ttf') format('truetype');
+
+}
+
+@font-face {
+    font-family: 'SuperspaceLightttf';
+    src: url('./fonts/Superspace/SuperspaceLightttf.ttf') format('truetype');
 }
 
 @font-face {
@@ -18,7 +29,7 @@
 
 .resume-page {
     background-color: #e3d4cd;
-    padding: 20px;
+    padding: 12px;
     overflow-x: hidden;
     overflow-y: scroll;
     height: 100vh;
@@ -99,7 +110,7 @@
 }
 
 .bold {
-    font-family: 'superspaceBold';
+    font-family: 'superspaceBoldttf';
     font-weight: bold;
 }
 
@@ -150,7 +161,7 @@ ul {
 }
 
 .resume-page p {
-    margin: 0px 0px 8px;
+    margin: 0px 0px 5px;
 }
 
 .two-tab::before {
@@ -170,27 +181,32 @@ ul {
     font-family: 'HelveticaNeueCondensed' !important;
     color: white;
     text-align: center;
-    font-size: 22pt !important;
+    font-size: 24pt !important;
     padding: 5px;
 }
 
 .sub-header-bold {
-    font-family: 'superspaceBold';
-    font-size: 20pt;
+    font-family: 'superspaceBoldttf';
+    font-size: 21pt;
     color: #ed8d9b;
 }
 
 .resume-page div {
-    font-family: 'superspaceLight';
+    font-family: 'superspaceLightttf';
     color: white;
     font-size: 12pt;
+    font-weight: lighter;
 }
 
 .small-font {
-    font-size: 10pt;
+    font-size: 10.5pt;
 }
 
-@media (max-width: 846px) {
+.normal-font {
+    font-size: 11pt;
+}
+
+@media (max-width: 844px) {
 
     .container-bg {
         padding: 0;
@@ -220,3 +236,18 @@ ul {
       }
 
 }
+
+ul > li {
+    padding-bottom: 5px;
+} 
+
+ul > p, ul > span > p {
+    margin: 0px 0px 5px;
+}
+
+.line-spacing {
+    line-height: 30px;
+}
+
+
+
