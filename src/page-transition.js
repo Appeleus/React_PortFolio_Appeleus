@@ -1,31 +1,36 @@
-// PageTransition.js
-
+// Import necessary dependencies
 import React, { useState, useEffect } from 'react';
-import './page-transition.css'; // Import your transition CSS
+import { useNavigate } from 'react-router-dom';
+import './page-transition.css';
 
-const PageTransition = ({ children }) => {
+const PageTransition = ({children}) => {
   const [isTransitioning, setTransitioning] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Set transitioning to false after the component has mounted
-    setTransitioning(false);
-  }, []);
-
-  useEffect(() => {
-    // Simulate a delay for the transition (adjust the duration as needed)
-    const transitionTimeout = setTimeout(() => {
+    const mountTimeout = setTimeout(() => {
       setTransitioning(false);
     }, 0);
 
     return () => {
-      clearTimeout(transitionTimeout);
+      clearTimeout(mountTimeout);
     };
   }, []);
 
+  useEffect(() => {
+    setTransitioning(true);
+
+    const transitionTimeout = setTimeout(() => {
+      setTransitioning(false);
+    }, 500);
+
+    return () => {
+      clearTimeout(transitionTimeout);
+    };
+  }, [navigate]);
+
   return (
-    <div className={`page-transition ${isTransitioning ? 'transitioning' : ''}`}>
-      {children}
-    </div>
+    <div className={`page-transition ${isTransitioning ? 'transitioning' : ''}`}>{children}</div>
   );
 };
 

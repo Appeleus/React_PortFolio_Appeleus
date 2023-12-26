@@ -47,7 +47,7 @@ const Resume = () => {
                         <div className="col-6 main-col-padding">
                             <div className="col d-flex justify-content-center">
                                 <img src="https://cdn.discordapp.com/avatars/300933528659427329/fc0a0a97a7caa95cefd3f60c8f908340.png?size=4096"
-                                    alt="pfp" className="profile-image" />
+                                    alt="pfp" className="profile-image" draggable="false" />
 
                             </div>
                             <div className="rounded-corner"></div>

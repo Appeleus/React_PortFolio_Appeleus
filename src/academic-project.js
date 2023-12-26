@@ -156,11 +156,17 @@ const AcademicProject = () => {
             onClick={() => navigateToIndex(index)}
           >
             {/* Card content here */}
-            <a href={project.prjLink} target="_blank" rel="noopener noreferrer">
-              <img src={project.image} alt={`Project ${index + 1}`} />
-            </a>
-            <h2>{project.name}</h2>
-            <p>{project.description}</p>
+            <div className="row" style={{height: '100%'}}>
+              <div className="col-4">
+                <a href={project.prjLink} target="_blank" rel="noopener noreferrer">
+                  <img src={project.image} alt={`Project ${index + 1}`} />
+                </a>
+              </div>
+              <div className="col-8">
+                <h2 style={{textAlign: 'center'}}>{project.name}</h2>
+                <p>{project.description}</p>
+              </div>
+            </div>
 
             {/* Overlay for next/previous cards */}
             {index === currentProjectIndex - 1 && (
@@ -171,9 +177,7 @@ const AcademicProject = () => {
 
             {index === currentProjectIndex + 1 && (
               <div className="overlay next">
-
                 <img src={projects[index].image} alt={`Project ${index}`} />
-
               </div>
             )}
           </div>

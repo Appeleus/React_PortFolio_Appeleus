@@ -1,18 +1,18 @@
 /* page-transition.css */
 
+
 .page-transition {
     width: 100%;
     height: 100%;
-    background-color: black; /* Add a black background */
-    animation: fadeIn 0.5s ease-in-out;
-    z-index: 999; /* Ensure the overlay is on top of other content */
+    background-color: black;
+    z-index: 999;
   }
   
   .page-transition.transitioning {
-    animation: fadeOut 0.5s ease-out;
+    animation: TransitionFadeOut 0.5s, TransitionFadeIn 0.5s ease-in-out;
   }
   
-  @keyframes fadeIn {
+  @keyframes TransitionFadeIn {
     from {
       opacity: 0;
     }
@@ -21,7 +21,7 @@
     }
   }
   
-  @keyframes fadeOut {
+  @keyframes TransitionFadeOut {
     from {
       opacity: 1;
     }
