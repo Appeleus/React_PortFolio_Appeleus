@@ -42,7 +42,7 @@ const Resume = () => {
 
         <div className="resume-page">
             <div className="container-fluid container-bg" style={{ paddingBottom: '10%' }}>
-                <div className="col">
+                <div className="col-12">
                     <div className="row">
                         <div className="col-6 main-col-padding">
                             <div className="col d-flex justify-content-center">
@@ -231,7 +231,7 @@ const Resume = () => {
                                                 <p className="normal-font"><i className="bi bi-chevron-right"></i> With APIary and Postman</p>
 
                                                 <li className="bold">Web application : Food community webboard Mini Project</li>
-                                                <p className="normal-font no-text-break"><i className="bi bi-chevron-right"></i> Designed most of the website pages with Bootstrap 5.</p>
+                                                <p className="normal-font"><i className="bi bi-chevron-right"></i> Designed most of the website pages with Bootstrap 5.</p>
 
                                                 <li className="bold">Mobile App & Web app : Perforkid Childcare Application</li>
                                                 <p className="normal-font"><i className="bi bi-chevron-right"></i> Designed with Flutterflow for Mobile app.<br />
