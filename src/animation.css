@@ -35,7 +35,7 @@ body {
 } */
 
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 844px) {
   .animation-container img {
     object-fit: cover;
     padding: 10%;
@@ -61,7 +61,7 @@ body {
   z-index: 100;
   display: flex;
   justify-content: center;
-  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out, transform 0.2s ease-out;
 }
 
 @media only screen and (max-height: 450px) {
@@ -91,6 +91,14 @@ body {
     display: none;
   }
 
+}
+
+.arrow.up:hover {
+  transform: translateY(-10px);
+}
+
+.arrow.down:hover {
+  transform: translateY(10px);
 }
 
 .arrow.up::before {
@@ -224,7 +232,7 @@ body {
   z-index: 100;
   height: 0;
   opacity: 0;
-  transition: height 0.5s, opacity 0.3s,  padding-left 0.3s ease-out;
+  transition: height 0.5s, opacity 0.3s, padding-left 0.3s ease-out;
 }
 
 .bg-open-link a {
