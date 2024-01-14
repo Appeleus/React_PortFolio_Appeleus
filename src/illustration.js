@@ -26,7 +26,7 @@ const Illustration = () => {
             id: 3,
             name: 'Sakamata',
             description: 'Description for Image 1',
-            imageUrl: 'https://pbs.twimg.com/media/FzTTFQBaIAArnM3?format=jpg&name=small',
+            imageUrl: 'https://pbs.twimg.com/media/FzTTFQBaIAArnM3?format=jpg&name=4096x4096',
         },
         {
             id: 4,
@@ -44,19 +44,19 @@ const Illustration = () => {
             id: 6,
             name: 'Nargacuga',
             description: 'Description for Image 1',
-            imageUrl: 'https://pbs.twimg.com/media/FuxlWrpaYAE-Xhd?format=jpg&name=small',
+            imageUrl: 'https://pbs.twimg.com/media/FuxlWrpaYAE-Xhd?format=jpg&name=4096x4096',
         },
         {
             id: 7,
             name: 'Rathalos',
             description: 'Description for Image 1',
-            imageUrl: 'https://pbs.twimg.com/media/FyLL5K7aAAEsGE1?format=jpg&name=small',
+            imageUrl: 'https://pbs.twimg.com/media/FyLL5K7aAAEsGE1?format=jpg&name=4096x4096',
         },
         {
             id: 8,
             name: 'Fanart of "EAT"',
             description: 'Description for Image 1',
-            imageUrl: 'https://pbs.twimg.com/media/F5Eva-1a0AEMZb_?format=jpg&name=small',
+            imageUrl: 'https://pbs.twimg.com/media/F5Eva-1a0AEMZb_?format=jpg&name=4096x4096',
         },
         {
             id: 9,
