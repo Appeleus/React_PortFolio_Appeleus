@@ -1,11 +1,5 @@
 /* Navbar.css */
-.navbar body {
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
-  /* Set the background color to grey */
-  font-family: 'Quicksand', sans-serif;
-}
+
 
 @font-face {
   font-family: 'Quicksand';
@@ -47,6 +41,14 @@
   src: url('./fonts/Mitr/Mitr-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+}
+
+.navbar body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  /* Set the background color to grey */
+  font-family: 'Quicksand', sans-serif;
 }
 
 .navbar {
@@ -126,7 +128,7 @@
 }
 
 .has-submenu .selected {
-  text-shadow: 0px 0 white, 0px 0 white, 0 0px white;
+  text-shadow: 0px 0 black, 0px 0 black, 0 0px black;
 }
 
 .submenu:not(:hover) {

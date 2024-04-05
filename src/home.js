@@ -131,6 +131,7 @@ const Home = () => {
         };
         loadImages();
     }, []);
+
     useEffect(() => {
         // Load images once when the component mounts
 
@@ -154,7 +155,6 @@ const Home = () => {
                 moveY = Math.min(Math.max(moveY, -maxRangeY), maxRangeY);
 
                 layerElement.style.transform = `translate(${moveX}px, ${moveY}px)`;
-
             }
         };
 
