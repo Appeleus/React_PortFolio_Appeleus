@@ -46,7 +46,7 @@ const Resume = () => {
                     <div className="row">
                         <div className="col-6 main-col-padding">
                             <div className="col d-flex justify-content-center">
-                                <img src="https://cdn.discordapp.com/avatars/300933528659427329/a5ea78e2f82b96d901ac28c90b3b74dd.png?size=4096"
+                                <img src="https://cdn.discordapp.com/avatars/300933528659427329/d1cfc2af513f8529e4b4057baae95748.png?size=4096"
                                     alt="pfp" className="profile-image" draggable="false" />
 
                             </div>
