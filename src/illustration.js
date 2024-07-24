@@ -71,11 +71,17 @@ const Illustration = () => {
           imageUrl: 'https://pbs.twimg.com/media/GKZ-ZEjbAAA09Iv?format=jpg',
       },
       {
-        id: 10,
+        id: 11,
         name: 'Nargacuga Doodle',
         description: 'Description for Image 1',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/personalwebport.appspot.com/o/NargaFHD.png?alt=media&token=04b3c2d4-1f24-4301-bb99-7801d0164502',
     },
+    {
+    id: 12,
+    name: 'Gore Magala',
+    description: 'Description for Image 1',
+    imageUrl: 'https://pbs.twimg.com/media/GRAUY3kbMAAB3nG?format=jpg',
+}
       
     ]);
 
