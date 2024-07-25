@@ -26,6 +26,7 @@ const Navbar = () => {
     if (isAnimation) return 'Animation';
     if (isIllustration) return 'Illustration';
     if (isResume) return 'Resume';
+
     // Handle other cases or set a default value
     return '';
   };
@@ -60,43 +61,51 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''} 
-                      ${['Home', 'Project', 'Animation', 'Illustration', 'Resume'].find(page => location.pathname.includes(page.toLowerCase())) || ''}`}>
-        <ul>
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}${['Home', 'Project', 'Animation', 'Illustration', 'Resume'].find(page => location.pathname.includes(page.toLowerCase())) || ''}`}>
+        <ul className={`${selectedItem.includes('Hobby') ? '' : 'menu-open'}`}>
           <li
-            className={`col-4 ${selectedItem === 'Home' ? 'selected' : ''}`}
+            className={`${selectedItem === 'Home' ? 'selected' : ''}`}
             onClick={() => handleItemClick('Home')}
           >
             <NavLink to="/home">Home</NavLink>
           </li>
           <li
-            className={`col-4 ${selectedItem === 'Project' ? 'selected' : ''}`}
+            className={selectedItem === 'Resume' ? 'selected' : ''}
+            onClick={() => handleItemClick('Resume')}
+          >
+            <NavLink to="/resume">Resume</NavLink>
+          </li>
+          <li
+            className={`${selectedItem === 'Project' ? 'selected' : ''}`}
             onClick={() => handleItemClick('Project')}
           >
             <NavLink to="/project">Project</NavLink>
           </li>
-          <li className="has-submenu col-4">
+          <li
+            className={`${selectedItem === '' ? 'menu-open' : ''}`}
+            onClick={() => handleItemClick(`Hobby ${getCurrentPageState()}`)}
+          >
             Hobby
-            <ul className="submenu">
-              <li
-                className={selectedItem === 'Animation' ? 'selected' : ''}
-                onClick={() => handleItemClick('Animation')}
-              >
-                <NavLink to="/animation">Animation</NavLink>
-              </li>
-              <li
-                className={selectedItem === 'Illustration' ? 'selected' : ''}
-                onClick={() => handleItemClick('Illustration')}
-              >
-                <NavLink to="/illustration">Illustration</NavLink>
-              </li>
-              <li
-                className={selectedItem === 'Resume' ? 'selected' : ''}
-                onClick={() => handleItemClick('Resume')}
-              >
-                <NavLink to="/resume">Resume</NavLink>
-              </li>
-              {/* <li
+          </li>
+        </ul>
+
+        <ul className={`navbar submenu ${selectedItem === `Hobby ${getCurrentPageState()}` ? 'menu-open' : ''}`}
+        >
+          <li className="arrow-left" onClick={() => handleItemClick(getCurrentPageState)}></li>
+          <li
+            className={selectedItem === 'Hobby Animation' ? 'selected' : ''}
+            onClick={() => handleItemClick('Animation')}
+          >
+            <NavLink to="/animation">Animation</NavLink>
+          </li>
+          <li
+            className={selectedItem === 'Hobby Illustration' ? 'selected' : ''}
+            onClick={() => handleItemClick('Illustration')}
+          >
+            <NavLink to="/illustration">Illustration</NavLink>
+          </li>
+
+          {/* <li
                 className={selectedItem === 'Instrument' ? 'selected' : ''}
                 onClick={() => handleItemClick('Instrument')}
               >
@@ -104,8 +113,7 @@ const Navbar = () => {
                   Instrument
                 </NavLink>
               </li> */}
-            </ul>
-          </li>
+
         </ul>
       </nav>
       <Routes>

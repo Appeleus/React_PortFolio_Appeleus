@@ -59,9 +59,9 @@
   height: 60px;
   font-size: 25px;
   font-weight: 200;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
-  transition: padding-bottom 0.4s, background-color 0.3s, backdrop-filter 0.3s ease-in-out;
+  transition: background-color 0.3s, backdrop-filter 0.3s ease-in-out;
   transition-delay: 0.1s;
   z-index: 1000;
   text-align: center;
@@ -72,17 +72,19 @@
   display: block;
   width: 100%;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   height: 100%;
+  transition: transform 0.2s ease-out;
 }
 
 .navbar a:hover {
-  color: #fff;
+  transform: translateY(-2px);
+  color: #cbcbcb;
 }
 
-.navbar:active, .navbar:hover {
-  padding-bottom: 75px;
-}
+/* .navbar:active, .navbar:hover {
+  padding-bottom: 0px;
+} */
 
 .navbar.scrolled {
   background-color: rgba(255, 255, 255, 0.8);
@@ -92,58 +94,85 @@
   /* Add transition for color */
 }
 
-.navbar ul {
+.navbar ul.menu-open  {
   list-style-type: none;
   display: flex;
   height: auto;
-  padding: 14px;
-  margin: 0px;
+  padding: 0px;
+  margin: 10px;
+  justify-content: space-around;
+  animation: fadeIn 0.25s ease-in;
+}
+
+.navbar ul:not(.menu-open) {
+  display: none;
+}
+
+.navbar ul.submenu.menu-open {
+  list-style-type: none;
+  display: flex;
+  height: auto;
+  padding: 0px;
+  margin: 10px;
   justify-content: space-around;
 }
 
+/* For Hobby Button*/
 .navbar li {
+  color: #fff;
   cursor: pointer;
+  transition: color 0.3s, transform 0.2s ease-out;
 }
 
 .navbar li:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease-out;
-  color: #fff;
+  transform: translateY(-2px);
+  color: #cbcbcb;
 }
+/* Ends of Hobby button */
 
 .selected {
-  text-shadow: 0px 0 black, 0px 0 black, 0 0px black;
   color:#fff;
-  background: 
-  linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
+  background: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
   background-size: 100% 0.1em, 0 0.1em;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
   animation: fadeIn 0.3s ease;
 }
 
-.has-submenu {
+/* .has-submenu {
+  font-family: 'Quicksand', sans-serif;
+  color:#fff;
   position: relative;
   animation: fadeOut 0.3s; 
 }
 
 .has-submenu .selected {
+  font-family: 'Quicksand', sans-serif;
   text-shadow: 0px 0 black, 0px 0 black, 0 0px black;
 }
 
 .submenu:not(:hover) {
   display: none;
+} */
 
-}
-
-.submenu {
+/* .submenu {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.3);
   list-style-type: none;
   bottom: 100%;
   width: 200px;
   animation: fadeIn 0.3s ease;
   backdrop-filter: blur(10px);
+} */
+
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 10px;
+  }
 }
 
 @keyframes fadeIn {
@@ -164,25 +193,45 @@
     opacity: 0;
   }
 }
-
-.submenu li a {
-  display: block;
-  width: 100%;
-  border-bottom: 2px solid #000; /* Add a horizontal line between items */
-  padding: 5%;
+.arrow-left {
+  width: 20px; /* Adjust width and height as needed */
+  height: auto;
+  background: url("https://www.svgrepo.com/show/486232/left-arrow-backup-2.svg") center/contain no-repeat;
+  filter: invert(1);
 }
 
-.submenu li:last-child {
+.submenu ul {
+  display: none;
+  color: #fff;
+  /*border-bottom: 2px solid #000;  Add a horizontal line between items */
+}
+
+.navbar.submenu {
+  /* animation: fadeOut 0.3s, slide-right 0.3s ease; */
+  display: none;
+}
+
+.navbar.submenu.menu-open {
+  animation: fadeIn 0.5s, slide-left 0.5s ease-out;
+  display: flex;
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+/* .submenu li:last-child {
   border-bottom: none;
-}
+} */
+@media DISABLED {
 
 .has-submenu:hover .submenu {
-  font-weight: lighter;
+  /* font-weight: lighter; */
   /* Set font-weight to normal */
   display: flex;
   left: 50%;
   transform: translateX(-50%);
   flex-direction: column;
+}
+
 }
 
 /* SCROLL BAR WEBKIT*/
@@ -218,15 +267,17 @@
   background-color: rgba(0,0,0,0.8);
 }
 
-.navbar.submenu {
+/* .navbar.submenu {
+  display: none;
   background-color: transparent;
-}
+} */
 
 .navbar.animation a {
   color: #fff;
   /* Set text color to white on the animations page */
 }
 
+@media DISABLED {
 .navbar.animation .submenu {
   background-color: rgba(0, 0, 0, 0.8);
   /* Set a background color for the submenu on the animations page */
@@ -241,6 +292,7 @@
 
 .navbar.animation .submenu li:last-child {
   border-bottom: none;
+}
 }
 
 /* FOR ILLUSTRATION PAGE X NAVBAR*/
@@ -258,7 +310,7 @@
 .navbar.illustration a {
   color: #fff;
 }
-
+@media DISABLED {
 .navbar.illustration .submenu {
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -271,6 +323,7 @@
 .navbar.illustration .submenu li:last-child {
   border-bottom: none;
 }
+}
 
 .navbar.illustration.image-modal .active {
   backdrop-filter: blur(0px);
@@ -278,7 +331,7 @@
 
 /* FOR RESUME PAGE X NAVBAR*/
 
-.navbar.resume {
+/* .navbar.resume {
   background-color: transparent;
   color: #fff;
 }
@@ -298,5 +351,5 @@
 .navbar.resume .submenu li {
   border-bottom: 2px solid #fff;
   color: #ffffff;
-}
+} */
 
