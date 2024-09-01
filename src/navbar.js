@@ -2,12 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Routes, Route, useLocation } from 'react-router-dom';
 import './navbar.css';
-import Home from './home';
-import Project from './academic-project';
-import Animation from './animation';
-import PageTransition from './page-transition';
-import Illustration from './illustration';
-import Resume from './resume';
+
 
 const Navbar = () => {
 
@@ -116,15 +111,7 @@ const Navbar = () => {
 
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/home" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/Project" element={<PageTransition><Project /></PageTransition>} />
-        <Route path="/animation" element={<PageTransition><Animation /></PageTransition>} />
-        <Route path="/illustration" element={<PageTransition><Illustration /></PageTransition>} />
-        <Route path="/resume" element={<PageTransition><Resume /></PageTransition>} />
-        {/* <Route path="/instrument" element={<PageTransition><Home /></PageTransition>} /> */}
-      </Routes>
+
     </>
   );
 };
