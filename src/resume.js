@@ -46,7 +46,7 @@ const Resume = () => {
                     <div className="row">
                         <div className="col-6 main-col-padding">
                             <div className="col d-flex justify-content-center">
-                                <img src="https://cdn.discordapp.com/avatars/300933528659427329/d1cfc2af513f8529e4b4057baae95748.png?size=4096"
+                                <img src="https://firebasestorage.googleapis.com/v0/b/personalwebport.appspot.com/o/DSC_6292.jpg?alt=media&token=08789679-68f6-4fa7-804e-545be56d8742"
                                     alt="pfp" className="profile-image" draggable="false" />
 
                             </div>
@@ -166,6 +166,7 @@ const Resume = () => {
                                                 <li><i className="bi bi-envelope-fill pink"></i> gotkunglovely@outlook.co.th</li>
                                                 <li><i className="bi bi-telephone-outbound-fill pink"></i> 099-165-0212</li>
                                                 <li><i className="bi bi-github pink"></i> https://github.com/Appeleus</li>
+                                                <li><i class="bi bi-geo-alt-fill pink"></i> Nonthaburi</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -205,16 +206,10 @@ const Resume = () => {
                                     <hr />
                                     <div className="row top-spacing">
                                         <div className="col">
-                                            <p className="line-spacing">&nbsp;&nbsp;I’m currently studying for a bachelor’s degree in Electronic Engineering -
-                                                Computer. I’ve
-                                                learned
-                                                a variety of things throughout my years in this university, such as hardware, software
-                                                development, computer networking and coding. But what really piqued my interest is the
-                                                act of
-                                                expressing creativity, to be able to bring thoughts into real life, and let people see
-                                                your
-                                                creation. It is such a fascinating process to me, and I hope I could continue it
-                                                further.</p>
+                                            <p className="line-spacing">&nbsp;&nbsp;	Hello, I’m Phantakorn. I graduated from KMUTNB (ENET-C).
+                                                I had an internship as a Back-End Developer for 4 months. Introduced to both Front-End and Back-End web stack
+                                                such as Angular and ASP.Net Core. I aimed to be able to develop a website more efficiently and pleasing as requested
+                                                from client, and work efficiently with other people in the team to produce the best result. And to also bettering myself.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -226,6 +221,7 @@ const Resume = () => {
                                     <hr />
                                     <div className="row top-spacing">
                                         <div className="col">
+                                            <span className="bold"><p>University Project</p></span>
                                             <ul className="line-spacing">
                                                 <li className="bold">Designed a REST API for University student grading website</li>
                                                 <p className="normal-font"><i className="bi bi-chevron-right"></i> With APIary and Postman</p>
@@ -236,6 +232,13 @@ const Resume = () => {
                                                 <li className="bold">Mobile App & Web app : Perforkid Childcare Application</li>
                                                 <p className="normal-font"><i className="bi bi-chevron-right"></i> Designed with Flutterflow for Mobile app.<br />
                                                     And Bootstrap and Javascript for Web application.</p>
+                                            </ul>
+                                            <span className="bold"><p>Internship & Work Experience</p></span>
+                                            <ul className="line-spacing">
+                                                <li className="bold">ADEV Solutions Plus CO., LTD. (Sep 2023 - Mar 2024)<br />Back-End Developer</li>
+
+                                                <p className="normal-font"><i className="bi bi-chevron-right"></i> Developed REST API for a CMS Web application<br />
+                                                    With C# ASP.NET Core.</p>
                                             </ul>
                                         </div>
                                     </div>
@@ -276,26 +279,30 @@ const Resume = () => {
                                     <div className="row top-spacing">
                                         <div className="col-6">
                                             <ul className="dash rm-white-space">
-                                                <span className="bold rm-white-space"><p>Program</p></span>
+                                                <span className="bold rm-white-space"><p>Program & Tools</p></span>
                                                 <li>Adobe Photoshop</li>
                                                 <li>Adobe Premiere Pro</li>
                                                 <li>Adobe After Effect</li>
                                                 <li>Live2D Cubism</li>
                                                 <li>Procreate app</li>
-                                                <li>Visual Studio Code</li>
+                                                <li>VS Code & VS</li>
                                                 <li>Canva</li>
+                                                <li>SSMS</li>
+                                                <li>Swagger UI</li>
                                             </ul>
                                         </div>
                                         <div className="col-6">
                                             <ul className="dash rm-white-space">
-                                                <span className="bold"><p>Computer Language</p></span>
-                                                <li>HTML, CSS, PHP</li>
+                                                <span className="bold"><p>Languages & Framework</p></span>
+                                                <li>HTML, CSS</li>
                                                 <li>Javascript</li>
-                                                <li>Python</li>
-                                                <li>Java</li>
-                                                <span className="bold"><p>Framework</p></span>
+                                                <li>C#</li>
                                                 <li>Bootstrap 5</li>
-                                                <li>React JS</li>
+                                                <li>Angular</li>
+                                                <li>ASP.NET Core 6</li>
+                                                <li>React</li>
+                                                <li>Node.js</li>
+                                                <li>SQL</li>
                                             </ul>
                                         </div>
                                     </div>
