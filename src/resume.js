@@ -4,6 +4,7 @@ import './resume.css';
 import { Footer } from './footer'
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import DateDiff from 'date-diff';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -11,9 +12,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 const Resume = () => {
     const location = useLocation();
     const isResume = location.pathname === '/resume';
+    var diff = new DateDiff(new Date(), new Date(2002, 3, 1));
 
     const [colClass, setColClass] = useState('');
     const [WideClass, setWideClass] = useState(false);
+    const [age, setAge] = useState("");
 
 
     const screenIsWide = () => (window.innerWidth > 843 ? 'col-5' : 'col-6');
@@ -23,6 +26,7 @@ const Resume = () => {
         document.title = `Resume📑`;
         setColClass(screenIsWide());
         setWideClass(resumeWidth());
+        setAge(diff.years());
 
         // Update class when the window is resized
         const handleResize = () => {
@@ -133,7 +137,7 @@ const Resume = () => {
                                             <ul className="hide-bullet-point rm-white-space text-y-spacing">
                                                 <li>Got</li>
                                                 <li>1 April 2002</li>
-                                                <li>22</li>
+                                                <li>{Math.floor(age)}</li>
                                             </ul>
                                         </div>
 
@@ -237,8 +241,8 @@ const Resume = () => {
                                             <ul className="line-spacing">
                                                 <li className="bold">ADEV Solutions Plus CO., LTD. (Sep 2023 - Mar 2024)<br />Back-End Developer</li>
 
-                                                <p className="normal-font"><i className="bi bi-chevron-right"></i> Developed REST API for a CMS Web application<br />
-                                                    With C# ASP.NET Core.</p>
+                                                <p className="normal-font"><i className="bi bi-chevron-right"></i> Developed REST API and designed SQL database for SSC (Siriraj Sport Complex) CMS Website Project
+                                                    With C# ASP.NET Core</p>
                                             </ul>
                                         </div>
                                     </div>
