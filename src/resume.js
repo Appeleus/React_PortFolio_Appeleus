@@ -133,7 +133,7 @@ const Resume = () => {
                                             <ul className="hide-bullet-point rm-white-space text-y-spacing">
                                                 <li>Got</li>
                                                 <li>1 April 2002</li>
-                                                <li>21</li>
+                                                <li>22</li>
                                             </ul>
                                         </div>
 
