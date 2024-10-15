@@ -6,6 +6,20 @@ body {
     background-color:#000;
   }
 
+.loading-container {
+    width: 90%;
+    height: 90%;
+    top: 45%;
+    opacity: 1;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    position: fixed;
+}
+
 .illustration-container {
     padding: 6%;
     overflow-y: auto;

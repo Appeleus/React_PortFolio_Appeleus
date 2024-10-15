@@ -138,10 +138,12 @@ const Illustration = () => {
     };
 
     return (
+      
         <div className="illustration-container">
           {/* Illustration grid */}
+          {!imagesLoaded && <div className="loading-container">Loading...</div>}
           {imagesLoaded && (
-            <div className="illustration-grid">
+            <div className="illustration-grid"> 
               {illustrations.map((illustration, index) => {
                 const { name, imageUrl, image } = illustration;
                 const imageType = isUltrawideHorizontal(image);

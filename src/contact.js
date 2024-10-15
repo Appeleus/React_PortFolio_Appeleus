@@ -21,8 +21,6 @@ const Contact = ({ onClose }) => {
         <h1>Email</h1>
         <p>gotkunglovely@outlook.co.th</p>
 
-        <h1>Discord</h1>
-        <p>delicious_apple</p>
         {/* Add more contact information as needed */}
         <button onClick={onClose}>Close</button>
       </div>

@@ -57,7 +57,7 @@ const Navbar = () => {
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}${['Home', 'Project', 'Animation', 'Illustration', 'Resume'].find(page => location.pathname.includes(page.toLowerCase())) || ''}`}>
-        <ul className={`${selectedItem.includes('Hobby') ? '' : 'menu-open'}`}>
+        <ul className={`${selectedItem.includes('Other') ? '' : 'menu-open'}`}>
           <li
             className={`${selectedItem === 'Home' ? 'selected' : ''}`}
             onClick={() => handleItemClick('Home')}
@@ -74,27 +74,27 @@ const Navbar = () => {
             className={`${selectedItem === 'Project' ? 'selected' : ''}`}
             onClick={() => handleItemClick('Project')}
           >
-            <NavLink to="/project">Project</NavLink>
+            <NavLink to="/project">Projects</NavLink>
           </li>
           <li
             className={`${selectedItem === '' ? 'menu-open' : ''}`}
-            onClick={() => handleItemClick(`Hobby ${getCurrentPageState()}`)}
+            onClick={() => handleItemClick(`Other ${getCurrentPageState()}`)}
           >
-            Hobby
+            Other
           </li>
         </ul>
 
-        <ul className={`navbar submenu ${selectedItem === `Hobby ${getCurrentPageState()}` ? 'menu-open' : ''}`}
+        <ul className={`navbar submenu ${selectedItem === `Other ${getCurrentPageState()}` ? 'menu-open' : ''}`}
         >
           <li className="arrow-left" onClick={() => handleItemClick(getCurrentPageState)}></li>
           <li
-            className={selectedItem === 'Hobby Animation' ? 'selected' : ''}
+            className={selectedItem === 'Other Animation' ? 'selected' : ''}
             onClick={() => handleItemClick('Animation')}
           >
             <NavLink to="/animation">Animation</NavLink>
           </li>
           <li
-            className={selectedItem === 'Hobby Illustration' ? 'selected' : ''}
+            className={selectedItem === 'Other Illustration' ? 'selected' : ''}
             onClick={() => handleItemClick('Illustration')}
           >
             <NavLink to="/illustration">Illustration</NavLink>

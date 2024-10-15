@@ -49,10 +49,10 @@ const AcademicProject = () => {
     },
     {
       id: 6,
-      name: 'More projects are coming!',
-      description: 'There is this application called "Perforkid" but its repository is privated right now so it simply cannot be showed here, and also dealing with scroll event is my god so much - Delicious Apple',
+      name: 'Web Application for Kindergarten Data Management and Mobile Application for School Bus Tracking and Parent Card System',
+      description: "A Bachelor's Degree final project. An ultimate Bus tracking system for user and School data management for Admin-side website.",
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1280px-HD_transparent_picture.png',
-      prjLink: ''
+      prjLink: 'https://github.com/prwthub/project_childcare_mobileapp'
     },
     // Add more projects as needed
   ];
@@ -131,10 +131,12 @@ const AcademicProject = () => {
 
   useEffect(() => {
     console.log('Project updated:', currentProjectIndex);
-    document.title = `Project✨`;
+    document.title = `Academic Project✨`;
   }, [currentProjectIndex]);
 
   return (
+<div className=''>
+  <img className='overlay' src="https://lh3.googleusercontent.com/p/AF1QipNH4QwmiS5KtlEh9Am8vFvDfKUjamSE8aM7VMFW=s680-w680-h510"></img>
 
     <div className="card-wrapper" ref={cardWrapperRef}>
 
@@ -184,6 +186,7 @@ const AcademicProject = () => {
         <Footer />
       </div>
 
+    </div>
     </div>
   );
 };
