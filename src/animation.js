@@ -171,6 +171,19 @@ const Animation = () => {
                     ))}
                 </div>
 
+                {/* Background Image stack */}
+                <div className="image-stack" style={{ overflow: 'hidden' }}>
+                    {images.map((image, index) => (
+                        <div
+                            key={image.id}
+                            className={`image image-overlay ${index === currentImageIndex ? 'top' : ''}`}
+                        >
+                            <img src={image.imageUrl} style={{ objectFit: 'cover' }} alt={`Image ${index + 1}`} />
+                        </div>
+                    ))}
+
+                </div>
+
                 {/* Image stack */}
                 <div className="image-stack" style={{ overflow: 'hidden' }}>
                     {images.map((image, index) => (
